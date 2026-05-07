@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Calculus AB Prep</title>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Light theme — late-afternoon study scene, paper warmed by a window */
+    --bg:oklch(0.985 0.005 65);
+    --paper:oklch(0.975 0.008 60);
+    --card:oklch(0.998 0.003 60);
+    --ink:oklch(0.235 0.022 40);
+    --ink-soft:oklch(0.36 0.022 40);
+    --muted:oklch(0.52 0.020 40);
+    --line:oklch(0.91 0.010 45);
+    --line-strong:oklch(0.85 0.013 45);
+
+    --brand:oklch(0.66 0.175 40);
+    --brand-deep:oklch(0.56 0.180 35);
+    --brand-tint:oklch(0.94 0.045 45);
+    --brand-tint-strong:oklch(0.88 0.080 42);
+    --brand-ink:oklch(0.40 0.165 38);
+
+    --ember:oklch(0.83 0.150 86);
+    --ember-deep:oklch(0.70 0.175 70);
+    --ember-tint:oklch(0.96 0.060 88);
+
+    --good:oklch(0.62 0.135 148);
+    --bad:oklch(0.62 0.165 22);
+    --warn:oklch(0.76 0.145 78);
+
+    --choice-bg:var(--card);
+    --choice-hover:oklch(0.97 0.025 45);
+    --choice-selected:oklch(0.94 0.065 42);
+    --feedback-good:oklch(0.95 0.055 148);
+    --feedback-bad:oklch(0.96 0.045 22);
+
+    --soft:oklch(0.95 0.040 45);
+    --soft-text:var(--brand-ink);
+
+    --pill-calc-bg:oklch(0.94 0.060 70);
+    --pill-calc-text:oklch(0.45 0.135 60);
+    --pill-nocalc-bg:oklch(0.93 0.045 245);
+    --pill-nocalc-text:oklch(0.40 0.140 248);
+    --pill-unit-bg:oklch(0.94 0.055 148);
+    --pill-unit-text:oklch(0.42 0.125 148);
+
+    --header-bg:oklch(0.985 0.005 65 / 0.85);
+    --solution-bg:oklch(0.96 0.030 45);
+    --details-bg:oklch(0.97 0.012 45);
+    --table-head-bg:oklch(0.95 0.018 45);
+
+    --score-bg:oklch(0.235 0.022 40);
+    --score-text:oklch(0.985 0.005 65);
+    --score-muted:oklch(0.65 0.022 40);
+
+    --shadow-color:40 25% 30%;
+    --shadow-near:0 1px 2px oklch(0.30 0.030 40 / 0.06), 0 2px 6px oklch(0.30 0.030 40 / 0.05);
+    --shadow-mid:0 4px 14px oklch(0.30 0.030 40 / 0.08), 0 1px 3px oklch(0.30 0.030 40 / 0.05);
+    --shadow-far:0 18px 40px oklch(0.30 0.080 40 / 0.14), 0 4px 12px oklch(0.30 0.030 40 / 0.06);
+    --shadow:var(--shadow-mid);
+
+    --radius-sm:8px;
+    --radius:14px;
+    --radius-lg:22px;
+    --radius-xl:28px;
+
+    --ease-out:cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-quart:cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-expo:cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-theme="dark"]{
+    /* Dark theme — kitchen lamp, 11pm, the night before the test */
+    --bg:oklch(0.18 0.012 40);
+    --paper:oklch(0.20 0.014 40);
+    --card:oklch(0.235 0.018 42);
+    --ink:oklch(0.96 0.008 65);
+    --ink-soft:oklch(0.82 0.012 50);
+    --muted:oklch(0.66 0.020 45);
+    --line:oklch(0.32 0.020 45);
+    --line-strong:oklch(0.42 0.025 45);
+
+    --brand:oklch(0.74 0.155 44);
+    --brand-deep:oklch(0.82 0.130 48);
+    --brand-tint:oklch(0.30 0.060 40);
+    --brand-tint-strong:oklch(0.38 0.090 40);
+    --brand-ink:oklch(0.82 0.140 44);
+
+    --ember:oklch(0.84 0.155 86);
+    --ember-deep:oklch(0.92 0.140 90);
+    --ember-tint:oklch(0.32 0.060 80);
+
+    --good:oklch(0.74 0.150 148);
+    --bad:oklch(0.72 0.155 24);
+    --warn:oklch(0.82 0.140 84);
+
+    --choice-bg:oklch(0.255 0.018 42);
+    --choice-hover:oklch(0.30 0.022 45);
+    --choice-selected:oklch(0.35 0.075 42);
+    --feedback-good:oklch(0.30 0.060 148);
+    --feedback-bad:oklch(0.32 0.075 22);
+
+    --soft:oklch(0.30 0.045 42);
+    --soft-text:var(--brand);
+
+    --pill-calc-bg:oklch(0.32 0.065 70);
+    --pill-calc-text:oklch(0.86 0.130 80);
+    --pill-nocalc-bg:oklch(0.28 0.055 250);
+    --pill-nocalc-text:oklch(0.82 0.115 248);
+    --pill-unit-bg:oklch(0.28 0.055 148);
+    --pill-unit-text:oklch(0.82 0.130 148);
+
+    --header-bg:oklch(0.18 0.012 40 / 0.80);
+    --solution-bg:oklch(0.26 0.030 42);
+    --details-bg:oklch(0.235 0.015 42);
+    --table-head-bg:oklch(0.27 0.020 42);
+
+    --score-bg:oklch(0.30 0.040 42);
+    --score-text:oklch(0.96 0.008 65);
+    --score-muted:oklch(0.72 0.020 50);
+
+    --shadow-near:0 1px 2px oklch(0 0 0 / 0.30), 0 2px 6px oklch(0 0 0 / 0.25);
+    --shadow-mid:0 4px 14px oklch(0 0 0 / 0.40), 0 1px 3px oklch(0 0 0 / 0.30);
+    --shadow-far:0 22px 50px oklch(0 0 0 / 0.55), 0 6px 16px oklch(0 0 0 / 0.35);
+    --shadow:var(--shadow-mid);
+  }
+  [data-theme="dark"] mjx-container{color:var(--ink) !important}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font-family:'Geist',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+    font-feature-settings:"ss01","cv11";
+    line-height:1.5;transition:background-color .25s var(--ease-out),color .25s var(--ease-out);
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  body{background-image:radial-gradient(ellipse 60% 40% at 80% -10%, oklch(from var(--brand) l c h / 0.07), transparent 60%),
+    radial-gradient(ellipse 50% 30% at -10% 110%, oklch(from var(--ember) l c h / 0.05), transparent 65%);
+    background-attachment:fixed}
+  header{position:sticky;top:0;background:var(--header-bg);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--line);z-index:50;transition:background-color .25s var(--ease-out)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .topbar{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+  .logo{font-weight:800;font-size:19px;letter-spacing:-.022em;display:inline-flex;align-items:center;gap:10px;color:var(--ink)}
+  .logo .glyph{width:26px;height:26px;display:inline-grid;place-items:center;background:var(--brand);color:oklch(0.985 0.005 65);border-radius:7px;font-weight:800;font-size:15px;letter-spacing:-.04em;box-shadow:0 4px 10px oklch(from var(--brand) l c h / 0.35)}
+  .logo span{color:var(--brand)}
+  nav{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto;align-items:center}
+  nav button{background:transparent;border:1px solid transparent;color:var(--muted);
+    padding:8px 13px;border-radius:9px;cursor:pointer;font-weight:500;font-size:14px;font-family:inherit;
+    transition:background-color .15s var(--ease-out),color .15s var(--ease-out)}
+  nav button:hover{background:var(--soft);color:var(--ink)}
+  nav button.active{background:var(--ink);color:var(--paper);font-weight:600}
+  [data-theme="dark"] nav button.active{background:var(--brand);color:oklch(0.18 0.012 40)}
+  .topbar-tools{display:inline-flex;align-items:center;gap:10px;margin-left:6px;padding-left:12px;border-left:1px solid var(--line)}
+  .streak-chip{display:none;align-items:center;gap:6px;padding:6px 10px;border-radius:99px;background:var(--ember-tint);color:var(--ember-deep);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;border:1px solid oklch(from var(--ember) l c h / 0.4)}
+  .streak-chip.show{display:inline-flex}
+  .streak-chip svg{width:14px;height:14px}
+  .theme-toggle{background:var(--soft) !important;color:var(--ink) !important;
+    border:1px solid var(--line) !important;padding:6px 10px !important;
+    border-radius:9px;font-size:13px;cursor:pointer;display:inline-flex;
+    align-items:center;gap:6px;line-height:1;font-family:inherit}
+  .theme-toggle:hover{background:var(--choice-hover) !important}
+  main{padding:48px 0 100px}
+  @media (max-width: 540px){ main{padding:28px 0 80px} }
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px;box-shadow:var(--shadow-near)}
+  h1{margin:0 0 8px;font-size:30px;letter-spacing:-.025em;font-weight:700;line-height:1.15}
+  h2{margin:0 0 10px;font-size:22px;letter-spacing:-.018em;font-weight:700}
+  h3{margin:18px 0 8px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  p{margin:0 0 12px}
+  .muted{color:var(--muted);font-size:14px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;
+    background:var(--soft);color:var(--soft-text)}
+  .pill.calc{background:var(--pill-calc-bg);color:var(--pill-calc-text)}
+  .pill.nocalc{background:var(--pill-nocalc-bg);color:var(--pill-nocalc-text)}
+  .pill.unit{background:var(--pill-unit-bg);color:var(--pill-unit-text)}
+  .btn{background:var(--brand);color:oklch(0.985 0.005 65);border:none;padding:10px 16px;border-radius:10px;
+    cursor:pointer;font-weight:600;font-size:14px;font-family:inherit;letter-spacing:-.005em;
+    transition:background-color .15s var(--ease-out),transform .15s var(--ease-out),box-shadow .2s var(--ease-out);
+    box-shadow:0 1px 2px oklch(from var(--brand) calc(l - 0.20) c h / 0.30), 0 6px 14px oklch(from var(--brand) l c h / 0.25)}
+  .btn:hover{background:var(--brand-deep);transform:translateY(-1px);box-shadow:0 2px 4px oklch(from var(--brand) calc(l - 0.20) c h / 0.30), 0 10px 22px oklch(from var(--brand) l c h / 0.30)}
+  .btn:active{transform:translateY(0)}
+  .btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--line-strong);box-shadow:none}
+  .btn.ghost:hover{background:var(--brand-tint);border-color:var(--brand);color:var(--brand-deep);transform:translateY(-1px);box-shadow:none}
+  .btn.muted{background:var(--soft);color:var(--ink);box-shadow:none}
+  .btn.muted:hover{background:var(--choice-hover);transform:translateY(-1px);box-shadow:none}
+  .btn.warn{background:var(--warn);color:oklch(0.20 0.030 60);box-shadow:0 1px 2px oklch(from var(--warn) calc(l - 0.30) c h / 0.30)}
+  .btn.bad{background:var(--bad);color:oklch(0.985 0.005 65)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+  select,input[type=text]{padding:8px 12px;border:1px solid var(--line-strong);border-radius:9px;
+    font-size:14px;background:var(--card);color:var(--ink);font-family:inherit;
+    transition:border-color .15s var(--ease-out),box-shadow .15s var(--ease-out)}
+  select:focus,input[type=text]:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px oklch(from var(--brand) l c h / 0.18)}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:6px}
+  .grid{display:grid;gap:14px}
+  .grid.cols-2{grid-template-columns:1fr 1fr}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:720px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+  .qbox{padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:14px}
+  .qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+  .qnum{font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  .qstem{font-size:16px;margin:8px 0 14px}
+  .choice{display:block;padding:10px 14px;border:1px solid var(--line);border-radius:8px;
+    margin-bottom:8px;cursor:pointer;background:var(--choice-bg);transition:all .12s ease;color:var(--ink)}
+  .choice:hover{border-color:var(--brand);background:var(--choice-hover)}
+  .choice.selected{border-color:var(--brand);background:var(--choice-selected)}
+  .choice.correct{border-color:var(--good);background:var(--feedback-good)}
+  .choice.wrong{border-color:var(--bad);background:var(--feedback-bad)}
+  .choice .lab{font-weight:700;color:var(--brand);margin-right:8px}
+  .choice.correct .lab{color:var(--good)}
+  .choice.wrong .lab{color:var(--bad)}
+  .feedback{margin-top:10px;padding:12px;border-radius:8px;font-size:14px}
+  .feedback.right{background:var(--feedback-good);color:var(--good)}
+  .feedback.wrong{background:var(--feedback-bad);color:var(--bad)}
+  .feedback .why{color:var(--ink);margin-top:6px;font-size:14px}
+  .timer{font-variant-numeric:tabular-nums;font-weight:700;font-size:18px;
+    padding:8px 14px;background:var(--score-bg);color:var(--score-text);border-radius:8px}
+  .timer.warn{background:var(--warn);color:#fff}
+  .timer.danger{background:var(--bad);color:#fff}
+  .progress{height:6px;background:var(--soft);border-radius:99px;overflow:hidden;margin:6px 0 14px}
+  .progress > div{height:100%;background:var(--brand);transition:width .25s ease}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  details{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px;background:var(--details-bg)}
+  details[open]{background:var(--card)}
+  summary{cursor:pointer;font-weight:600}
+  .frq-part{padding:10px 14px;border-left:3px solid var(--brand);background:var(--solution-bg);border-radius:4px;margin-bottom:10px}
+  .rubric li{margin-bottom:4px}
+  .formula-table{width:100%;border-collapse:collapse;margin:8px 0}
+  .formula-table th,.formula-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+  .formula-table th{background:var(--table-head-bg);color:var(--muted);font-weight:600;text-transform:uppercase;font-size:12px;letter-spacing:.04em}
+  .scorebox{display:flex;align-items:center;gap:18px;padding:18px;background:var(--score-bg);color:var(--score-text);border-radius:12px;margin-bottom:18px}
+  .scorebox .big{font-size:42px;font-weight:700;letter-spacing:-.02em}
+  .scorebox .muted{color:var(--score-muted) !important}
+  .legend{font-size:13px;color:var(--muted);margin:8px 0 16px}
+  .center{text-align:center}
+  .hidden{display:none !important}
+  .flag{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:700;
+    background:var(--pill-calc-bg);color:var(--pill-calc-text);margin-left:6px}
+  pre.solution{background:var(--solution-bg);padding:14px 16px;
+    border-radius:10px;white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.6;color:var(--ink);
+    border:1px solid var(--line)}
+  .check-row{display:flex;gap:8px;align-items:center;margin:6px 0}
+  .check-row input{accent-color:var(--good);width:16px;height:16px}
+  .badge{padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--soft-text);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+
+  /* ============================================================
+     HOME SCREEN
+     Three regions: hero (today + Rho), mode quartet, footer.
+     Each mode tile is a window into its mode, not an identical card.
+     ============================================================ */
+  .home{display:flex;flex-direction:column;gap:32px;padding-top:8px}
+
+  /* ---- Hero (greeting + Rho + recommendation + CTA) ---- */
+  .hero{position:relative;display:grid;grid-template-columns:1.45fr 1fr;gap:0;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-mid);
+    isolation:isolate}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse 70% 90% at 100% 50%, oklch(from var(--brand) l c h / 0.10), transparent 60%),
+    radial-gradient(ellipse 50% 70% at 0% 0%, oklch(from var(--ember) l c h / 0.08), transparent 60%);
+    pointer-events:none;z-index:0}
+  .hero-text{position:relative;z-index:1;padding:36px 36px 32px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted);
+    letter-spacing:.06em;text-transform:uppercase}
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px oklch(from var(--brand) l c h / 0.15);
+    animation:hero-pulse 2.4s var(--ease-out-expo) infinite}
+  @keyframes hero-pulse{
+    0%,100%{box-shadow:0 0 0 4px oklch(from var(--brand) l c h / 0.10)}
+    50%{box-shadow:0 0 0 8px oklch(from var(--brand) l c h / 0.04)}
+  }
+  .hero-greeting{font-size:clamp(28px, 3.6vw, 40px);font-weight:700;line-height:1.05;letter-spacing:-.028em;margin:0;color:var(--ink)}
+  .hero-greeting em{font-style:normal;color:var(--brand)}
+  .hero-rec{font-size:16px;line-height:1.55;color:var(--ink-soft);max-width:46ch;margin:0}
+  .hero-rec b{color:var(--ink);font-weight:600}
+  .hero-cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px}
+  .hero-cta .btn{padding:13px 22px;font-size:15px;border-radius:11px}
+  .hero-cta .btn-time{font-size:12px;font-weight:500;color:var(--muted);margin-left:4px}
+
+  /* ---- Mascot panel ---- */
+  .hero-mascot{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;
+    background:linear-gradient(155deg, oklch(from var(--brand-tint) l c h / 0.5), transparent 70%);
+    border-left:1px solid oklch(from var(--brand) l c h / 0.10);padding:24px 24px 0;min-height:240px}
+  .rho{width:240px;height:240px;display:block;filter:drop-shadow(0 12px 24px oklch(from var(--brand-deep) l c h / 0.25));
+    transform-origin:50% 100%}
+  .rho > svg{display:block;width:100%;height:100%}
+  .rho .rho-shadow{transition:opacity .4s var(--ease-out)}
+  .rho .rho-eye{transform-origin:center;transform-box:fill-box;animation:rho-blink 5.5s var(--ease-out-expo) infinite}
+  .rho .rho-eye-r{animation-delay:.05s}
+  @keyframes rho-blink{
+    0%,92%,100%{transform:scaleY(1)}
+    94%,96%{transform:scaleY(0.1)}
+  }
+  .rho.rho-wave{animation:rho-wave 1100ms var(--ease-out-quart) 1}
+  @keyframes rho-wave{
+    0%{transform:translateY(20px) rotate(-6deg);opacity:0}
+    20%{transform:translateY(0) rotate(-6deg);opacity:1}
+    45%{transform:translateY(0) rotate(8deg)}
+    70%{transform:translateY(0) rotate(-3deg)}
+    100%{transform:translateY(0) rotate(0)}
+  }
+  .rho-sparkles{opacity:0;transition:opacity .4s var(--ease-out)}
+  .rho.rho-streak .rho-sparkles{opacity:1;animation:rho-sparkle 2.6s var(--ease-out-expo) infinite}
+  @keyframes rho-sparkle{
+    0%,100%{transform:scale(.85);opacity:.7}
+    50%{transform:scale(1.05);opacity:1}
+  }
+  .rho.rho-night .rho-mouth-default,
+  .rho.rho-night .rho-eye{display:none}
+  .rho.rho-night .rho-mouth-night,
+  .rho.rho-night .rho-eye-closed{display:block}
+  .rho .rho-mouth-night,.rho .rho-eye-closed{display:none}
+
+  /* ---- Mode quartet — 2x2, equal cells, distinct interiors ---- */
+  .modes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .mode{position:relative;display:block;border:1px solid var(--line);background:var(--card);
+    border-radius:var(--radius-lg);padding:24px;cursor:pointer;text-align:left;
+    overflow:hidden;isolation:isolate;
+    transition:transform .25s var(--ease-out-quart),box-shadow .25s var(--ease-out-quart),border-color .2s var(--ease-out)}
+  .mode:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:var(--shadow-far)}
+  .mode:focus-visible{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px oklch(from var(--brand) l c h / 0.25), var(--shadow-mid)}
+  .mode-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .mode-title{font-size:19px;font-weight:700;letter-spacing:-.018em;color:var(--ink);margin:0}
+  .mode-sub{font-size:13.5px;color:var(--muted);margin:2px 0 0;line-height:1.5;max-width:34ch}
+  .mode-tag{font-size:11px;font-weight:600;color:var(--brand);background:var(--brand-tint);padding:4px 9px;border-radius:99px;
+    letter-spacing:.02em;white-space:nowrap;text-transform:uppercase}
+  .mode-tag.subtle{color:var(--muted);background:var(--soft)}
+  .mode-canvas{position:relative;height:140px;margin-top:18px;display:flex;align-items:center;justify-content:center;
+    border-radius:14px;overflow:hidden}
+
+  /* Practice Exam tile — clock arc */
+  .mode-exam .mode-canvas{background:radial-gradient(circle at 50% 60%, oklch(from var(--brand) l c h / 0.06), transparent 70%)}
+  .clock-face{position:relative;width:140px;height:140px}
+  .clock-face svg{width:100%;height:100%;transform:rotate(-90deg)}
+  .clock-track{stroke:var(--line);stroke-width:9;fill:none}
+  .clock-fill{stroke:var(--brand);stroke-width:9;fill:none;stroke-linecap:round;
+    transition:stroke-dashoffset 1.6s var(--ease-out-quart)}
+  .clock-label{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-variant-numeric:tabular-nums}
+  .clock-label .hours{font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.025em;line-height:1}
+  .clock-label .mins{font-size:11px;color:var(--muted);font-weight:500;margin-top:3px;letter-spacing:.04em;text-transform:uppercase}
+
+  /* Topic Practice tile — unit chips */
+  .mode-topic .mode-canvas{background:linear-gradient(135deg, oklch(from var(--brand) l c h / 0.04), transparent 70%);align-items:flex-start;padding:14px 4px}
+  .unit-chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;align-items:center;width:100%}
+  .unit-chip{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--card);
+    border:1px solid var(--line);color:var(--ink-soft);font-weight:600;font-size:14px;font-variant-numeric:tabular-nums;
+    transition:transform .25s var(--ease-out-quart),background .25s var(--ease-out)}
+  .unit-chip.weak{background:var(--brand);color:oklch(0.985 0.005 65);border-color:var(--brand);
+    box-shadow:0 4px 12px oklch(from var(--brand) l c h / 0.30);transform:translateY(-2px) scale(1.05)}
+  .mode-topic:hover .unit-chip:not(.weak){transform:translateY(-1px)}
+  .unit-chip-label{margin-top:8px;font-size:11px;color:var(--muted);text-align:center;width:100%;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+
+  /* FRQ tile — notebook fragment */
+  .mode-frq .mode-canvas{background:repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 22px,
+    oklch(from var(--brand) l c h / 0.10) 22px,
+    oklch(from var(--brand) l c h / 0.10) 23px
+  );padding:14px 22px;align-items:flex-start;justify-content:flex-start}
+  .frq-paper{font-family:'Geist Mono',ui-monospace,monospace;font-size:13.5px;color:var(--ink-soft);line-height:23px;width:100%}
+  .frq-paper .frq-line{display:block}
+  .frq-paper .frq-eq{color:var(--ink);font-weight:500}
+  .frq-paper .frq-mark{color:var(--brand);font-weight:600}
+  .frq-paper .frq-cursor{display:inline-block;width:7px;height:14px;background:var(--brand);vertical-align:-2px;
+    margin-left:1px;animation:frq-blink 1s steps(1) infinite}
+  @keyframes frq-blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+
+  /* Study Guide tile — flashcard cycle */
+  .mode-guide .mode-canvas{background:linear-gradient(160deg, oklch(from var(--ember) l c h / 0.08), transparent 70%)}
+  .flashcard-stack{position:relative;width:100%;height:100%;display:grid;place-items:center}
+  .flashcard{grid-column:1;grid-row:1;width:78%;max-width:220px;padding:16px 18px;background:var(--card);
+    border:1px solid var(--line);border-radius:13px;font-size:18px;color:var(--ink);text-align:center;
+    box-shadow:var(--shadow-near);opacity:0;transform:translateY(8px) rotate(0);
+    animation:flashcard-cycle 10s var(--ease-out-expo) infinite}
+  .flashcard:nth-child(1){animation-delay:0s}
+  .flashcard:nth-child(2){animation-delay:2.5s}
+  .flashcard:nth-child(3){animation-delay:5s}
+  .flashcard:nth-child(4){animation-delay:7.5s}
+  @keyframes flashcard-cycle{
+    0%{opacity:0;transform:translateY(12px) rotate(-1.5deg) scale(.95)}
+    8%{opacity:1;transform:translateY(0) rotate(-1.5deg) scale(1)}
+    25%{opacity:1;transform:translateY(0) rotate(-1.5deg) scale(1)}
+    33%{opacity:0;transform:translateY(-12px) rotate(2deg) scale(.95)}
+    100%{opacity:0;transform:translateY(12px) rotate(-1.5deg) scale(.95)}
+  }
+
+  /* ---- Footer ---- */
+  .home-foot{font-size:13px;color:var(--muted);text-align:center;padding:8px 0;display:flex;gap:12px;
+    align-items:center;justify-content:center;flex-wrap:wrap}
+  .home-foot .dot-sep{opacity:.4}
+  .home-foot b{color:var(--ink-soft);font-weight:600;font-variant-numeric:tabular-nums}
+
+  /* ---- Streak indicator (header chip uses ember colors above) ---- */
+  .ember-spark{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--ember);
+    box-shadow:0 0 0 4px oklch(from var(--ember) l c h / 0.20),0 0 12px oklch(from var(--ember) l c h / 0.55);margin-right:6px;
+    animation:ember-flicker 1.8s var(--ease-out-expo) infinite alternate}
+  @keyframes ember-flicker{
+    from{opacity:.85;transform:scale(.95)}
+    to{opacity:1;transform:scale(1.1)}
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 880px){
+    .hero{grid-template-columns:1fr}
+    .hero-text{padding:28px 24px 12px}
+    .hero-mascot{border-left:none;border-top:1px solid oklch(from var(--brand) l c h / 0.10);min-height:200px;padding:16px 20px 0}
+    .rho{width:180px;height:180px}
+    .modes{grid-template-columns:1fr;gap:14px}
+    .mode{padding:20px}
+    .mode-canvas{height:120px}
+    .home{gap:24px}
+  }
+  @media (max-width: 540px){
+    .wrap{padding:0 16px}
+    .topbar{gap:10px;padding:12px 0}
+    nav{gap:0}
+    nav button{padding:7px 10px;font-size:13px}
+    .topbar-tools{padding-left:8px}
+    .hero-greeting{font-size:26px}
+    .mode-canvas{height:104px}
+    .clock-face{width:108px;height:108px}
+    .clock-label .hours{font-size:20px}
+  }
+
+  /* ---- Reduced motion ---- */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important}
+    .rho.rho-wave{animation:none}
+    .flashcard{opacity:1;transform:none;animation:none}
+    .flashcard:nth-child(n+2){display:none}
+    .hero-eyebrow .dot{box-shadow:0 0 0 4px oklch(from var(--brand) l c h / 0.10)}
+    .ember-spark{animation:none;opacity:1}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="logo" aria-label="AP Calc AB Prep"><span class="glyph" aria-hidden="true">∫</span>AP Calc AB</div>
+    <nav id="nav">
+      <button data-mode="home" class="active">Home</button>
+      <button data-mode="exam">Practice Exam</button>
+      <button data-mode="topic">Topic Practice</button>
+      <button data-mode="frq">FRQ Practice</button>
+      <button data-mode="guide">Study Guide</button>
+      <span class="topbar-tools">
+        <span id="streakChip" class="streak-chip" role="status" aria-label="Current study streak" title="Study streak"><span class="ember-spark" aria-hidden="true"></span><span id="streakDays">0</span><span style="opacity:.6;font-weight:500;margin-left:1px">d</span></span>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle dark mode"><span id="themeIcon">🌙</span><span id="themeLabel">Dark</span></button>
+      </span>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+
+<script>
+/* ============================================================
+   AP Calculus AB Prep — full single-file app
+   Question banks (MCQ + FRQ + study guide) inline below.
+   ============================================================ */
+
+/* ---------- MCQ BANK ---------- */
+/* Each item: { id, unit, topic, calc, q, choices, ans (index), exp }
+   Math written in LaTeX (rendered with MathJax). */
+const MCQ = [];
+
+/* ---------- FRQ BANK ---------- */
+const FRQ = [];
+
+/* ---------- STUDY GUIDE ---------- */
+const GUIDE = [];
+
+/* ========== UNIT 1: LIMITS & CONTINUITY ========== */
+MCQ.push(
+  {id:'u1q1', unit:1, topic:'Limits & Continuity', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 2}\\frac{x^2-4}{x-2}$.',
+    choices:['$0$','$2$','$4$','The limit does not exist'], ans:2,
+    exp:'Factor: $\\frac{(x-2)(x+2)}{x-2}=x+2$ for $x\\ne 2$, so the limit is $2+2=4$.'},
+  {id:'u1q2', unit:1, topic:'Limits & Continuity', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 0}\\frac{\\sin(3x)}{x}$.',
+    choices:['$0$','$1$','$3$','DNE'], ans:2,
+    exp:'$\\frac{\\sin(3x)}{x}=3\\cdot\\frac{\\sin(3x)}{3x}\\to 3\\cdot 1=3$.'},
+  {id:'u1q3', unit:1, topic:'Limits & Continuity', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to\\infty}\\frac{3x^2-2x+1}{5x^2+4}$.',
+    choices:['$0$','$\\tfrac{3}{5}$','$\\tfrac{5}{3}$','$\\infty$'], ans:1,
+    exp:'Same degree on top and bottom: ratio of leading coefficients $=\\tfrac{3}{5}$.'},
+  {id:'u1q4', unit:1, topic:'Limits & Continuity', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to-\\infty}\\frac{2x^3-x}{x^2+1}$.',
+    choices:['$\\infty$','$-\\infty$','$0$','$2$'], ans:1,
+    exp:'Degree of numerator exceeds denominator by 1; sign of leading term as $x\\to-\\infty$ gives $-\\infty$.'},
+  {id:'u1q5', unit:1, topic:'Continuity', calc:false,
+    q:'For what value of $c$ is $f(x)=\\begin{cases}x^2+c,&x\\le 1\\\\3x-c,&x>1\\end{cases}$ continuous at $x=1$?',
+    choices:['$-1$','$0$','$1$','$2$'], ans:2,
+    exp:'Match left and right values: $1+c=3-c\\Rightarrow 2c=2\\Rightarrow c=1$.'},
+  {id:'u1q6', unit:1, topic:'Limits', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 1}\\frac{x^3-1}{x-1}$.',
+    choices:['$0$','$1$','$3$','DNE'], ans:2,
+    exp:'$\\frac{x^3-1}{x-1}=x^2+x+1\\to 1+1+1=3$.'},
+  {id:'u1q7', unit:1, topic:'Definition of derivative', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{h\\to 0}\\frac{(2+h)^2-4}{h}$.',
+    choices:['$0$','$2$','$4$','DNE'], ans:2,
+    exp:'This is the derivative of $x^2$ at $x=2$, which is $2(2)=4$.'},
+  {id:'u1q8', unit:1, topic:'One-sided limits', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 0^{+}}\\frac{|x|}{x}$.',
+    choices:['$-1$','$0$','$1$','DNE'], ans:2,
+    exp:'For $x>0$, $|x|=x$, so the ratio equals $1$.'},
+  {id:'u1q9', unit:1, topic:'Discontinuities', calc:false,
+    q:'The function $f(x)=\\dfrac{x^2-9}{x-3}$ has which type of discontinuity at $x=3$?',
+    choices:['Continuous (no discontinuity)','Jump','Removable','Infinite (vertical asymptote)'], ans:2,
+    exp:'$f$ simplifies to $x+3$ for $x\\ne 3$. The graph has a hole — a removable discontinuity.'},
+  {id:'u1q10', unit:1, topic:'IVT', calc:false,
+    q:'By the Intermediate Value Theorem, on which interval must $f(x)=x^3-4x+1$ have a real zero?',
+    choices:['$[-2,-1]$','$[0,1]$','$[2,3]$','$[3,4]$'], ans:1,
+    exp:'$f(0)=1>0$, $f(1)=-2<0$. Sign change on $[0,1]$ guarantees a zero by IVT.'},
+  {id:'u1q11', unit:1, topic:'Special trig limit', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}$.',
+    choices:['$0$','$\\tfrac{1}{2}$','$1$','DNE'], ans:1,
+    exp:'Standard limit: $\\dfrac{1-\\cos x}{x^2}\\to\\dfrac{1}{2}$.'},
+  {id:'u1q12', unit:1, topic:'Infinite limits', calc:false,
+    q:'Evaluate $\\displaystyle\\lim_{x\\to 4^-}\\frac{1}{x-4}$.',
+    choices:['$\\infty$','$-\\infty$','$0$','$1$'], ans:1,
+    exp:'For $x$ slightly less than $4$, $x-4$ is small and negative, so the reciprocal $\\to-\\infty$.'},
+  {id:'u1q13', unit:1, topic:'Asymptotes', calc:false,
+    q:'For $f(x)=\\dfrac{x-1}{x^2-1}$, identify all vertical asymptotes.',
+    choices:['$x=1$ only','$x=-1$ only','$x=\\pm 1$','None'], ans:1,
+    exp:'$f=\\dfrac{x-1}{(x-1)(x+1)}=\\dfrac{1}{x+1}$ for $x\\ne 1$. VA only at $x=-1$; $x=1$ is a hole.'}
+);
+
+/* ========== UNIT 2: DIFFERENTIATION — DEFINITION & FUND. PROPERTIES ========== */
+MCQ.push(
+  {id:'u2q1', unit:2, topic:'Power rule', calc:false,
+    q:'If $f(x)=3x^4-2x^2+5x-7$, find $f\'(x)$.',
+    choices:['$12x^3-4x+5$','$12x^3-2x+5$','$3x^3-4x+5$','$12x^3-4x$'], ans:0,
+    exp:'Power rule term-by-term: $f\'(x)=12x^3-4x+5$.'},
+  {id:'u2q2', unit:2, topic:'Product rule', calc:false,
+    q:'If $f(x)=e^x\\sin x$, find $f\'(x)$.',
+    choices:['$e^x\\cos x$','$e^x(\\sin x+\\cos x)$','$e^x(\\sin x-\\cos x)$','$e^x\\sin x\\cos x$'], ans:1,
+    exp:'Product rule: $f\'=e^x\\sin x+e^x\\cos x=e^x(\\sin x+\\cos x)$.'},
+  {id:'u2q3', unit:2, topic:'Power rule', calc:false,
+    q:'$\\dfrac{d}{dx}\\left[x^{-3}\\right]=$',
+    choices:['$-3x^{-4}$','$3x^{-2}$','$-\\tfrac{1}{3}x^{-2}$','$\\tfrac{1}{x^{-2}}$'], ans:0,
+    exp:'Power rule with negative exponent: $-3x^{-4}=-3/x^4$.'},
+  {id:'u2q4', unit:2, topic:'Reciprocal', calc:false,
+    q:'$\\dfrac{d}{dx}\\left[\\dfrac{1}{x}\\right]=$',
+    choices:['$\\ln x$','$-\\dfrac{1}{x^2}$','$\\dfrac{1}{x^2}$','$1$'], ans:1,
+    exp:'$\\frac{1}{x}=x^{-1}$; derivative is $-x^{-2}=-1/x^2$.'},
+  {id:'u2q5', unit:2, topic:'Square root', calc:false,
+    q:'If $f(x)=\\sqrt{x}$, find $f\'(4)$.',
+    choices:['$\\tfrac{1}{2}$','$\\tfrac{1}{4}$','$2$','$1$'], ans:1,
+    exp:'$f\'(x)=\\dfrac{1}{2\\sqrt{x}}$; at $x=4$: $\\dfrac{1}{4}$.'},
+  {id:'u2q6', unit:2, topic:'Derivative as a limit', calc:false,
+    q:'$\\displaystyle\\lim_{h\\to 0}\\dfrac{\\ln(2+h)-\\ln 2}{h}=$',
+    choices:['$\\ln 2$','$\\tfrac{1}{2}$','$2$','$0$'], ans:1,
+    exp:'This is the derivative of $\\ln x$ at $x=2$. Since $(\\ln x)\'=\\frac{1}{x}$, the answer is $\\frac{1}{2}$.'},
+  {id:'u2q7', unit:2, topic:'Tangent line', calc:false,
+    q:'Find the equation of the tangent line to $y=x^3+2x$ at $x=1$.',
+    choices:['$y=3x$','$y=5x-2$','$y=5x+2$','$y=3x+2$'], ans:1,
+    exp:'$y(1)=3$, $y\'=3x^2+2$, $y\'(1)=5$. Line: $y-3=5(x-1)\\Rightarrow y=5x-2$.'},
+  {id:'u2q8', unit:2, topic:'Quotient rule', calc:false,
+    q:'$\\dfrac{d}{dx}\\left[\\dfrac{x}{x+1}\\right]=$',
+    choices:['$\\dfrac{1}{(x+1)^2}$','$\\dfrac{1}{x+1}$','$\\dfrac{x}{(x+1)^2}$','$\\dfrac{x-1}{(x+1)^2}$'], ans:0,
+    exp:'$\\dfrac{(1)(x+1)-x(1)}{(x+1)^2}=\\dfrac{1}{(x+1)^2}$.'},
+  {id:'u2q9', unit:2, topic:'Derivatives of standard fns', calc:false,
+    q:'$\\dfrac{d}{dx}[\\ln x]=$',
+    choices:['$\\dfrac{1}{x}$','$\\dfrac{1}{\\ln x}$','$x\\ln x$','$\\ln x$'], ans:0,
+    exp:'Standard derivative: $\\dfrac{d}{dx}\\ln x=\\dfrac{1}{x}$.'},
+  {id:'u2q10', unit:2, topic:'Derivatives of trig', calc:false,
+    q:'$\\dfrac{d}{dx}[\\tan x]=$',
+    choices:['$\\sec x\\tan x$','$-\\csc^2 x$','$\\sec^2 x$','$-\\sin^2 x$'], ans:2,
+    exp:'$\\frac{d}{dx}\\tan x=\\sec^2 x$.'},
+  {id:'u2q11', unit:2, topic:'Exponential', calc:false,
+    q:'$\\dfrac{d}{dx}[e^{2x}]=$',
+    choices:['$e^{2x}$','$2e^x$','$2xe^{2x-1}$','$2e^{2x}$'], ans:3,
+    exp:'Chain rule: $\\dfrac{d}{dx}[e^{2x}]=2e^{2x}$.'},
+  {id:'u2q12', unit:2, topic:'Position/velocity', calc:false,
+    q:'A particle moves with $s(t)=t^3-6t^2+9t$. Find the velocity at $t=2$.',
+    choices:['$-3$','$0$','$3$','$9$'], ans:0,
+    exp:'$v=s\'=3t^2-12t+9$; $v(2)=12-24+9=-3$.'},
+  {id:'u2q13', unit:2, topic:'Tangent slope', calc:false,
+    q:'What is the slope of the tangent to $y=x^2+3x$ at $x=2$?',
+    choices:['$5$','$7$','$10$','$12$'], ans:1,
+    exp:'$y\'=2x+3$; at $x=2$, slope $=7$.'}
+);
+
+/* ========== UNIT 3: COMPOSITE / IMPLICIT / INVERSE ========== */
+MCQ.push(
+  {id:'u3q1', unit:3, topic:'Chain rule', calc:false,
+    q:'$\\dfrac{d}{dx}\\left[(3x+1)^5\\right]=$',
+    choices:['$5(3x+1)^4$','$15(3x+1)^4$','$3(3x+1)^4$','$5(3x+1)^4\\cdot x$'], ans:1,
+    exp:'Chain rule: $5(3x+1)^4\\cdot 3=15(3x+1)^4$.'},
+  {id:'u3q2', unit:3, topic:'Chain rule', calc:false,
+    q:'$\\dfrac{d}{dx}[\\sin(x^2)]=$',
+    choices:['$\\cos(x^2)$','$2x\\cos(x^2)$','$2\\cos x$','$\\sin(2x)$'], ans:1,
+    exp:'$\\cos(x^2)\\cdot 2x=2x\\cos(x^2)$.'},
+  {id:'u3q3', unit:3, topic:'Chain with ln', calc:false,
+    q:'$\\dfrac{d}{dx}[\\ln(x^2+1)]=$',
+    choices:['$\\dfrac{1}{x^2+1}$','$\\dfrac{2x}{x^2+1}$','$\\dfrac{2x}{(x^2+1)^2}$','$\\dfrac{1}{2x}$'], ans:1,
+    exp:'$\\dfrac{(x^2+1)\'}{x^2+1}=\\dfrac{2x}{x^2+1}$.'},
+  {id:'u3q4', unit:3, topic:'Chain with e', calc:false,
+    q:'$\\dfrac{d}{dx}[e^{\\sin x}]=$',
+    choices:['$e^{\\sin x}$','$\\cos(e^{\\sin x})$','$\\cos x\\cdot e^{\\sin x}$','$\\sin x\\cdot e^{\\sin x}$'], ans:2,
+    exp:'$e^{\\sin x}\\cdot\\cos x=\\cos x\\cdot e^{\\sin x}$.'},
+  {id:'u3q5', unit:3, topic:'Implicit', calc:false,
+    q:'On the circle $x^2+y^2=25$, find $\\dfrac{dy}{dx}$ at the point $(3,4)$.',
+    choices:['$-\\tfrac{3}{4}$','$-\\tfrac{4}{3}$','$\\tfrac{3}{4}$','$\\tfrac{4}{3}$'], ans:0,
+    exp:'$2x+2yy\'=0\\Rightarrow y\'=-x/y=-3/4$.'},
+  {id:'u3q6', unit:3, topic:'Implicit', calc:false,
+    q:'If $y^2+xy=6$, then $\\dfrac{dy}{dx}=$',
+    choices:['$\\dfrac{-y}{2y+x}$','$\\dfrac{y}{2y+x}$','$\\dfrac{-x}{2y+x}$','$\\dfrac{2y+x}{-y}$'], ans:0,
+    exp:'Differentiate: $2y\\,y\'+y+xy\'=0\\Rightarrow y\'(2y+x)=-y$.'},
+  {id:'u3q7', unit:3, topic:'Inverse trig', calc:false,
+    q:'$\\dfrac{d}{dx}[\\arcsin x]=$',
+    choices:['$\\dfrac{1}{\\sqrt{1-x^2}}$','$\\dfrac{1}{1+x^2}$','$\\dfrac{-1}{\\sqrt{1-x^2}}$','$\\cos x$'], ans:0,
+    exp:'Standard derivative.'},
+  {id:'u3q8', unit:3, topic:'Inverse trig with chain', calc:false,
+    q:'$\\dfrac{d}{dx}[\\arctan(2x)]=$',
+    choices:['$\\dfrac{1}{1+4x^2}$','$\\dfrac{2}{1+4x^2}$','$\\dfrac{2}{1+x^2}$','$\\dfrac{2}{\\sqrt{1-4x^2}}$'], ans:1,
+    exp:'$\\dfrac{1}{1+(2x)^2}\\cdot 2=\\dfrac{2}{1+4x^2}$.'},
+  {id:'u3q9', unit:3, topic:'Derivative of inverse', calc:false,
+    q:'If $f(x)=x^3+x$ and $g$ is the inverse of $f$, find $g\'(2)$.',
+    choices:['$\\tfrac{1}{2}$','$\\tfrac{1}{4}$','$4$','$\\tfrac{1}{10}$'], ans:1,
+    exp:'$f(1)=2$. $f\'(x)=3x^2+1$, so $f\'(1)=4$. $g\'(2)=1/f\'(1)=1/4$.'},
+  {id:'u3q10', unit:3, topic:'Trig chain', calc:false,
+    q:'$\\dfrac{d}{dx}[\\sec(3x)]=$',
+    choices:['$\\sec(3x)\\tan(3x)$','$3\\sec(3x)\\tan(3x)$','$3\\tan(3x)$','$\\sec^2(3x)$'], ans:1,
+    exp:'$\\sec u$ with $u=3x$: derivative $\\sec u\\tan u\\cdot u\'=3\\sec(3x)\\tan(3x)$.'},
+  {id:'u3q11', unit:3, topic:'Power-of-a-function', calc:false,
+    q:'$\\dfrac{d}{dx}[\\cos^3 x]=$',
+    choices:['$3\\cos^2 x$','$-3\\cos^2 x\\sin x$','$-\\sin^3 x$','$3\\cos^2 x\\sin x$'], ans:1,
+    exp:'$3\\cos^2 x\\cdot(-\\sin x)=-3\\cos^2 x\\sin x$.'},
+  {id:'u3q12', unit:3, topic:'Square root chain', calc:false,
+    q:'$\\dfrac{d}{dx}\\left[\\sqrt{x^2+1}\\right]=$',
+    choices:['$\\dfrac{1}{2\\sqrt{x^2+1}}$','$\\dfrac{x}{\\sqrt{x^2+1}}$','$\\dfrac{2x}{\\sqrt{x^2+1}}$','$\\dfrac{x}{2\\sqrt{x^2+1}}$'], ans:1,
+    exp:'$\\dfrac{1}{2\\sqrt{x^2+1}}\\cdot 2x=\\dfrac{x}{\\sqrt{x^2+1}}$.'},
+  {id:'u3q13', unit:3, topic:'Implicit at a point', calc:false,
+    q:'For $x^2+xy+y^2=7$, find $\\dfrac{dy}{dx}$ at the point $(1,2)$.',
+    choices:['$-\\tfrac{4}{5}$','$-\\tfrac{5}{4}$','$\\tfrac{4}{5}$','$-\\tfrac{1}{2}$'], ans:0,
+    exp:'$2x+y+xy\'+2yy\'=0\\Rightarrow y\'=-(2x+y)/(x+2y)=-(2+2)/(1+4)=-4/5$.'}
+);
+
+/* ========== UNIT 4: CONTEXTUAL APPLICATIONS OF DIFFERENTIATION ========== */
+MCQ.push(
+  {id:'u4q1', unit:4, topic:'Related rates', calc:false,
+    q:'A 10-ft ladder leans against a wall. The base slides away at $2$ ft/s. When the base is $6$ ft from the wall, how fast (ft/s) is the top of the ladder sliding down?',
+    choices:['$1$','$\\tfrac{3}{2}$','$2$','$\\tfrac{8}{3}$'], ans:1,
+    exp:'$x^2+y^2=100$. At $x=6$, $y=8$. $2x x\'+2y y\'=0\\Rightarrow 12(2)+16y\'=0\\Rightarrow y\'=-1.5$ ft/s.'},
+  {id:'u4q2', unit:4, topic:'Particle motion', calc:false,
+    q:'A particle has position $s(t)=t^3-9t^2+24t-6$. At which times is it at rest?',
+    choices:['$t=2$ only','$t=4$ only','$t=2$ and $t=4$','$t=3$ only'], ans:2,
+    exp:'$v(t)=3t^2-18t+24=3(t-2)(t-4)=0\\Rightarrow t=2,4$.'},
+  {id:'u4q3', unit:4, topic:'Linearization', calc:false,
+    q:'Use a tangent-line approximation to estimate $\\sqrt{4.04}$.',
+    choices:['$2.001$','$2.01$','$2.02$','$2.04$'], ans:1,
+    exp:'$f(x)=\\sqrt x$, $f\'(4)=1/4$. $L(x)=2+\\frac{1}{4}(x-4)\\Rightarrow L(4.04)=2.01$.'},
+  {id:'u4q4', unit:4, topic:'Avg rate of change', calc:false,
+    q:'The average rate of change of $f(x)=x^3$ on $[1,3]$ is',
+    choices:['$9$','$13$','$26$','$27$'], ans:1,
+    exp:'$\\dfrac{f(3)-f(1)}{3-1}=\\dfrac{27-1}{2}=13$.'},
+  {id:'u4q5', unit:4, topic:'Direction of motion', calc:false,
+    q:'A particle has $v(t)=t^2-4t+3$. The particle moves to the right when',
+    choices:['$t<1$ or $t>3$','$1<t<3$','$t<3$','always'], ans:0,
+    exp:'$v=(t-1)(t-3)>0$ when $t<1$ or $t>3$.'},
+  {id:'u4q6', unit:4, topic:'Related rates (sphere)', calc:false,
+    q:'A spherical balloon has volume $V=\\tfrac{4}{3}\\pi r^3$. If $\\dfrac{dr}{dt}=2$ cm/s, how fast is the volume changing when $r=5$?',
+    choices:['$100\\pi$','$200\\pi$','$400\\pi$','$\\tfrac{500}{3}\\pi$'], ans:1,
+    exp:'$\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}=4\\pi(25)(2)=200\\pi$.'},
+  {id:'u4q7', unit:4, topic:'Linear approximation', calc:false,
+    q:'If $f(2)=3$ and $f\'(2)=4$, estimate $f(2.1)$ using a tangent-line approximation.',
+    choices:['$3.04$','$3.4$','$3.04\\!\\cdot\\!2$','$4.4$'], ans:1,
+    exp:'$f(2.1)\\approx f(2)+f\'(2)(0.1)=3+0.4=3.4$.'},
+  {id:'u4q8', unit:4, topic:'Speeding up / slowing', calc:false,
+    q:'A particle has $v(t)=t^2-4$ and $a(t)=2t$. At $t=3$ the particle is',
+    choices:['speeding up','slowing down','at rest','reversing direction'], ans:0,
+    exp:'$v(3)=5>0$ and $a(3)=6>0$. Same signs $\\Rightarrow$ speeding up.'},
+  {id:'u4q9', unit:4, topic:'Theory: speed', calc:false,
+    q:'A particle is speeding up when',
+    choices:['$v$ and $a$ have opposite signs','$v$ and $a$ have the same sign','$v=0$','$a=0$'], ans:1,
+    exp:'$\\dfrac{d|v|}{dt}>0$ exactly when $v$ and $a$ share a sign.'},
+  {id:'u4q10', unit:4, topic:'Related rates (cube)', calc:false,
+    q:'A cube\'s edge grows at $0.5$ in/s. How fast is the volume increasing when the edge is $4$ in?',
+    choices:['$8$ in$^3$/s','$16$ in$^3$/s','$24$ in$^3$/s','$48$ in$^3$/s'], ans:2,
+    exp:'$V=s^3\\Rightarrow\\dfrac{dV}{dt}=3s^2\\dfrac{ds}{dt}=3(16)(0.5)=24$.'},
+  {id:'u4q11', unit:4, topic:'Displacement vs distance', calc:false,
+    q:'A particle moves along a line with $v(t)=\\sin t$. Its displacement from $t=0$ to $t=\\pi$ is',
+    choices:['$0$','$1$','$2$','$\\pi$'], ans:2,
+    exp:'$\\displaystyle\\int_0^{\\pi}\\sin t\\,dt=[-\\cos t]_0^{\\pi}=-(-1)-(-1)=2$.'},
+  {id:'u4q12', unit:4, topic:'Marginal rate', calc:false,
+    q:'If $C(x)=100+2x+0.01x^2$ is the cost (\\$) to produce $x$ items, the marginal cost at $x=50$ is',
+    choices:['$\\$2.50$','$\\$3.00$','$\\$5.00$','$\\$50.00$'], ans:1,
+    exp:'$C\'(x)=2+0.02x$; $C\'(50)=3$.'},
+  {id:'u4q13', unit:4, topic:'Linearization of e^x', calc:false,
+    q:'Use the linearization of $f(x)=e^x$ at $x=0$ to estimate $e^{0.05}$.',
+    choices:['$1.005$','$1.05$','$1.50$','$0.95$'], ans:1,
+    exp:'$L(x)=1+x$, so $e^{0.05}\\approx 1.05$.'}
+);
+
+/* ========== UNIT 5: ANALYTICAL APPLICATIONS OF DIFFERENTIATION ========== */
+MCQ.push(
+  {id:'u5q1', unit:5, topic:'Critical points', calc:false,
+    q:'Find all critical numbers of $f(x)=x^3-3x^2$.',
+    choices:['$x=0$ only','$x=2$ only','$x=0$ and $x=2$','$x=1$'], ans:2,
+    exp:'$f\'(x)=3x^2-6x=3x(x-2)=0\\Rightarrow x=0,\\,2$.'},
+  {id:'u5q2', unit:5, topic:'Local extrema', calc:false,
+    q:'For $f(x)=x^3-3x^2$, classify $x=2$.',
+    choices:['Local max','Local min','Neither','Inflection'], ans:1,
+    exp:'$f\'\'(x)=6x-6$; $f\'\'(2)=6>0\\Rightarrow$ local minimum.'},
+  {id:'u5q3', unit:5, topic:'Inflection point', calc:false,
+    q:'Find the $x$-coordinate of the point of inflection of $f(x)=x^3-6x^2+9x+1$.',
+    choices:['$1$','$2$','$3$','$0$'], ans:1,
+    exp:'$f\'\'(x)=6x-12=0\\Rightarrow x=2$. Concavity changes there.'},
+  {id:'u5q4', unit:5, topic:'Closed-interval extrema', calc:false,
+    q:'Find the absolute maximum of $f(x)=x^2-4x+3$ on $[0,3]$.',
+    choices:['$-1$','$0$','$3$','$4$'], ans:2,
+    exp:'$f(0)=3$, $f(2)=-1$, $f(3)=0$. Max value is $3$.'},
+  {id:'u5q5', unit:5, topic:'Mean Value Theorem', calc:false,
+    q:'By the MVT, find a value $c$ in $(0,2)$ for $f(x)=x^3$ such that $f\'(c)$ equals the average rate of change on $[0,2]$.',
+    choices:['$c=\\tfrac{2}{3}$','$c=\\tfrac{2}{\\sqrt{3}}$','$c=1$','$c=\\sqrt{2}$'], ans:1,
+    exp:'Avg rate $=\\frac{8-0}{2}=4$. $f\'(c)=3c^2=4\\Rightarrow c=\\frac{2}{\\sqrt{3}}$.'},
+  {id:'u5q6', unit:5, topic:'Concavity', calc:false,
+    q:'Where is $f(x)=x^4-4x^3$ concave up?',
+    choices:['$x>0$','$x<0$ or $x>2$','$0<x<2$','everywhere'], ans:1,
+    exp:'$f\'\'(x)=12x^2-24x=12x(x-2)>0$ when $x<0$ or $x>2$.'},
+  {id:'u5q7', unit:5, topic:'Rolle\'s theorem', calc:false,
+    q:'For $f(x)=x^2-4$ on $[-2,2]$, find all $c$ guaranteed by Rolle\'s theorem.',
+    choices:['$c=-1$','$c=0$','$c=1$','$c=2$'], ans:1,
+    exp:'$f(-2)=f(2)=0$. $f\'(c)=2c=0\\Rightarrow c=0$.'},
+  {id:'u5q8', unit:5, topic:'Extrema (mixed)', calc:false,
+    q:'Find and classify the only critical point of $f(x)=xe^{-x}$.',
+    choices:['$x=0$, local min','$x=1$, local max','$x=1$, local min','$x=-1$, local max'], ans:1,
+    exp:'$f\'(x)=e^{-x}(1-x)=0\\Rightarrow x=1$. $f\'\'(1)=-e^{-1}<0\\Rightarrow$ local max.'},
+  {id:'u5q9', unit:5, topic:'Optimization', calc:false,
+    q:'A rectangle is inscribed with its base on the $x$-axis and upper corners on the semicircle $y=\\sqrt{9-x^2}$. Its maximum area is',
+    choices:['$6$','$9$','$\\tfrac{27}{4}$','$3\\sqrt{2}$'], ans:1,
+    exp:'$A(x)=2x\\sqrt{9-x^2}$. $A\'=0\\Rightarrow x=\\frac{3}{\\sqrt{2}}$, giving $A=9$.'},
+  {id:'u5q10', unit:5, topic:'First/second derivative', calc:false,
+    q:'If $f\'(x)>0$ and $f\'\'(x)>0$ on an interval, then on that interval $f$ is',
+    choices:['increasing and concave up','increasing and concave down','decreasing and concave up','decreasing and concave down'], ans:0,
+    exp:'$f\'>0$ means increasing; $f\'\'>0$ means concave up.'},
+  {id:'u5q11', unit:5, topic:'Behavior at zero', calc:false,
+    q:'Which best describes $f(x)=x^3$ at $x=0$?',
+    choices:['Local minimum','Local maximum','Point of inflection with horizontal tangent','Discontinuity'], ans:2,
+    exp:'$f\'(0)=0$ but no sign change in $f\'$; $f\'\'$ changes sign — inflection with horizontal tangent.'},
+  {id:'u5q12', unit:5, topic:'Optimization', calc:false,
+    q:'Find the minimum value of $f(x)=x+\\dfrac{1}{x}$ on $(0,\\infty)$.',
+    choices:['$1$','$2$','$\\tfrac{1}{2}$','no minimum'], ans:1,
+    exp:'$f\'=1-\\frac{1}{x^2}=0\\Rightarrow x=1$, $f(1)=2$ (and $f\'\'(1)>0$).'},
+  {id:'u5q13', unit:5, topic:'Concavity', calc:false,
+    q:'Where is $f(x)=\\ln x$ concave?',
+    choices:['Concave up everywhere','Concave down on its domain','Has an inflection point at $x=1$','Concave up on $(0,1)$'], ans:1,
+    exp:'$f\'\'(x)=-1/x^2<0$ on $(0,\\infty)$ — concave down everywhere on the domain.'}
+);
+
+/* ========== UNIT 6: INTEGRATION & ACCUMULATION ========== */
+MCQ.push(
+  {id:'u6q1', unit:6, topic:'Antiderivative', calc:false,
+    q:'$\\displaystyle\\int x^3\\,dx=$',
+    choices:['$3x^2+C$','$\\dfrac{x^4}{4}+C$','$\\dfrac{x^4}{3}+C$','$x^4+C$'], ans:1,
+    exp:'Power rule for antiderivatives.'},
+  {id:'u6q2', unit:6, topic:'u-substitution', calc:false,
+    q:'$\\displaystyle\\int(2x+3)^4\\,dx=$',
+    choices:['$\\dfrac{(2x+3)^5}{10}+C$','$\\dfrac{(2x+3)^5}{5}+C$','$\\dfrac{(2x+3)^5}{2}+C$','$(2x+3)^5+C$'], ans:0,
+    exp:'$u=2x+3$, $du=2\\,dx$. $\\int u^4\\frac{du}{2}=\\frac{u^5}{10}+C$.'},
+  {id:'u6q3', unit:6, topic:'Definite integral', calc:false,
+    q:'$\\displaystyle\\int_0^1(3x^2+2x)\\,dx=$',
+    choices:['$1$','$2$','$3$','$\\tfrac{5}{2}$'], ans:1,
+    exp:'$[x^3+x^2]_0^1=1+1=2$.'},
+  {id:'u6q4', unit:6, topic:'Definite integral', calc:false,
+    q:'$\\displaystyle\\int_0^{\\pi}\\sin x\\,dx=$',
+    choices:['$0$','$1$','$2$','$-2$'], ans:2,
+    exp:'$[-\\cos x]_0^{\\pi}=1+1=2$.'},
+  {id:'u6q5', unit:6, topic:'Exponential antideriv', calc:false,
+    q:'$\\displaystyle\\int e^{2x}\\,dx=$',
+    choices:['$e^{2x}+C$','$\\dfrac{e^{2x}}{2}+C$','$2e^{2x}+C$','$xe^{2x}+C$'], ans:1,
+    exp:'$\\int e^{ax}dx=\\frac{1}{a}e^{ax}+C$ with $a=2$.'},
+  {id:'u6q6', unit:6, topic:'Log antiderivative', calc:false,
+    q:'$\\displaystyle\\int\\dfrac{1}{x}\\,dx=$',
+    choices:['$\\ln x+C$','$\\ln|x|+C$','$\\dfrac{1}{x^2}+C$','$-x^{-2}+C$'], ans:1,
+    exp:'$\\int\\frac{1}{x}\\,dx=\\ln|x|+C$.'},
+  {id:'u6q7', unit:6, topic:'Definite log integral', calc:false,
+    q:'$\\displaystyle\\int_1^{e}\\dfrac{1}{x}\\,dx=$',
+    choices:['$0$','$1$','$e-1$','$e$'], ans:1,
+    exp:'$\\ln e-\\ln 1=1$.'},
+  {id:'u6q8', unit:6, topic:'Fundamental Theorem (FTC1)', calc:false,
+    q:'If $F(x)=\\displaystyle\\int_2^x\\sin(t^2)\\,dt$, find $F\'(x)$.',
+    choices:['$\\sin(x^2)$','$\\cos(x^2)$','$2x\\sin(x^2)$','$-\\cos(x^2)$'], ans:0,
+    exp:'By FTC, $F\'(x)=\\sin(x^2)$.'},
+  {id:'u6q9', unit:6, topic:'FTC + chain', calc:false,
+    q:'If $F(x)=\\displaystyle\\int_0^{x^2}\\cos t\\,dt$, find $F\'(x)$.',
+    choices:['$\\cos(x^2)$','$2x\\cos(x^2)$','$\\sin(x^2)$','$\\cos(2x)$'], ans:1,
+    exp:'$F\'(x)=\\cos(x^2)\\cdot\\frac{d}{dx}(x^2)=2x\\cos(x^2)$.'},
+  {id:'u6q10', unit:6, topic:'u-substitution', calc:false,
+    q:'$\\displaystyle\\int x\\sin(x^2)\\,dx=$',
+    choices:['$-\\dfrac{\\cos(x^2)}{2}+C$','$-\\cos(x^2)+C$','$\\dfrac{\\cos(x^2)}{2}+C$','$\\dfrac{\\sin(x^2)}{2}+C$'], ans:0,
+    exp:'$u=x^2$, $du=2x\\,dx$: $\\int\\sin u\\cdot\\frac{du}{2}=-\\frac{1}{2}\\cos(x^2)+C$.'},
+  {id:'u6q11', unit:6, topic:'Riemann sum', calc:false,
+    q:'A right Riemann sum with $n=4$ for $\\displaystyle\\int_0^4 x^2\\,dx$ is',
+    choices:['$14$','$20$','$30$','$\\dfrac{64}{3}$'], ans:2,
+    exp:'$\\Delta x=1$. Right endpoints: $f(1)+f(2)+f(3)+f(4)=1+4+9+16=30$.'},
+  {id:'u6q12', unit:6, topic:'Average value', calc:false,
+    q:'The average value of $f(x)=x^2$ on $[0,3]$ is',
+    choices:['$1$','$2$','$3$','$\\tfrac{9}{2}$'], ans:2,
+    exp:'$\\dfrac{1}{3}\\int_0^3 x^2\\,dx=\\dfrac{1}{3}\\cdot 9=3$.'},
+  {id:'u6q13', unit:6, topic:'Symmetry', calc:false,
+    q:'$\\displaystyle\\int_{-1}^{1}(x^3+x)\\,dx=$',
+    choices:['$0$','$\\tfrac{1}{2}$','$1$','$2$'], ans:0,
+    exp:'$x^3+x$ is odd, so the integral over a symmetric interval about $0$ is $0$.'}
+);
+
+/* ========== UNIT 7: DIFFERENTIAL EQUATIONS ========== */
+MCQ.push(
+  {id:'u7q1', unit:7, topic:'Exponential growth', calc:false,
+    q:'The general solution of $\\dfrac{dy}{dx}=ky$ is',
+    choices:['$y=kx+C$','$y=Ce^{kx}$','$y=Ce^{x}$','$y=k\\sin x+C$'], ans:1,
+    exp:'Separating gives $\\ln|y|=kx+C$, so $y=Ce^{kx}$.'},
+  {id:'u7q2', unit:7, topic:'Initial value', calc:false,
+    q:'Solve $\\dfrac{dy}{dx}=2y$ with $y(0)=3$.',
+    choices:['$y=3+2x$','$y=3e^{2x}$','$y=2e^{3x}$','$y=3e^{x/2}$'], ans:1,
+    exp:'$y=Ce^{2x}$, $y(0)=C=3\\Rightarrow y=3e^{2x}$.'},
+  {id:'u7q3', unit:7, topic:'Separable', calc:false,
+    q:'Solve $\\dfrac{dy}{dx}=-\\dfrac{x}{y}$ with $y(0)=2$.',
+    choices:['$x^2+y^2=4$','$y=2-x$','$y^2=2x+4$','$y=\\sqrt{4-x}$'], ans:0,
+    exp:'$y\\,dy=-x\\,dx\\Rightarrow\\frac{y^2}{2}+\\frac{x^2}{2}=C$. With $y(0)=2$: $C=2$, so $x^2+y^2=4$.'},
+  {id:'u7q4', unit:7, topic:'Newton cooling form', calc:false,
+    q:'A model for an object cooling toward ambient $T_a$ has form',
+    choices:['$T(t)=T_0e^{-kt}$','$T(t)=T_a+(T_0-T_a)e^{-kt}$','$T(t)=T_a-T_0\\ln(kt)$','$T(t)=T_0+kt$'], ans:1,
+    exp:'$\\dfrac{dT}{dt}=-k(T-T_a)\\Rightarrow T=T_a+(T_0-T_a)e^{-kt}$.'},
+  {id:'u7q5', unit:7, topic:'Separable', calc:false,
+    q:'Solve $\\dfrac{dy}{dx}=xy$ with $y(0)=1$.',
+    choices:['$y=e^{x}$','$y=e^{x^2/2}$','$y=e^{x^2}$','$y=\\dfrac{x^2}{2}+1$'], ans:1,
+    exp:'$\\frac{dy}{y}=x\\,dx\\Rightarrow\\ln|y|=\\frac{x^2}{2}+C$, $y(0)=1\\Rightarrow y=e^{x^2/2}$.'},
+  {id:'u7q6', unit:7, topic:'Slope field', calc:false,
+    q:'For $\\dfrac{dy}{dx}=x-y$, the slope at the point $(2,1)$ is',
+    choices:['$-1$','$0$','$1$','$3$'], ans:2,
+    exp:'$x-y=2-1=1$.'},
+  {id:'u7q7', unit:7, topic:'Linear separable', calc:false,
+    q:'Solve $\\dfrac{dy}{dx}=\\dfrac{y}{x}$ for $x>0$.',
+    choices:['$y=Cx$','$y=Cx^2$','$y=Ce^{x}$','$y=x+C$'], ans:0,
+    exp:'$\\frac{dy}{y}=\\frac{dx}{x}\\Rightarrow\\ln|y|=\\ln|x|+C\\Rightarrow y=Cx$.'},
+  {id:'u7q8', unit:7, topic:'Exponential model', calc:true,
+    q:'A population satisfies $\\dfrac{dP}{dt}=0.05P$ with $P(0)=1000$. Find $P(20)$, rounded to the nearest integer.',
+    choices:['$2000$','$2500$','$2718$','$3000$'], ans:2,
+    exp:'$P(t)=1000e^{0.05t}$; $P(20)=1000e^1\\approx 2718.28$.'},
+  {id:'u7q9', unit:7, topic:'Antiderivative IVP', calc:false,
+    q:'Find the particular solution of $\\dfrac{dy}{dx}=\\sec^2 x$.',
+    choices:['$y=\\tan x+C$','$y=\\sec x+C$','$y=\\cot x+C$','$y=\\sin^2 x+C$'], ans:0,
+    exp:'$\\int\\sec^2 x\\,dx=\\tan x+C$.'},
+  {id:'u7q10', unit:7, topic:'IVP', calc:false,
+    q:'Find $y$ if $\\dfrac{dy}{dx}=6x^2$ and $y(1)=4$.',
+    choices:['$y=2x^3+2$','$y=2x^3+4$','$y=6x^3+1$','$y=2x^3-2$'], ans:0,
+    exp:'$y=2x^3+C$, $y(1)=2+C=4\\Rightarrow C=2$.'},
+  {id:'u7q11', unit:7, topic:'Separable IVP', calc:false,
+    q:'Solve $\\dfrac{dy}{dx}=\\dfrac{x}{y}$ with $y(0)=1$.',
+    choices:['$y=\\sqrt{x^2+1}$','$y=x+1$','$y=e^{x^2/2}$','$y^2=x^2-1$'], ans:0,
+    exp:'$y\\,dy=x\\,dx\\Rightarrow y^2/2=x^2/2+1/2\\Rightarrow y^2=x^2+1$, $y\\ge 0$.'},
+  {id:'u7q12', unit:7, topic:'Doubling time', calc:true,
+    q:'A bacterial colony grows continuously at $4\\%$ per hour. About how long (hours) does it take to double in size?',
+    choices:['$15$','$17.3$','$20$','$25$'], ans:1,
+    exp:'$2=e^{0.04t}\\Rightarrow t=\\dfrac{\\ln 2}{0.04}\\approx 17.33$.'},
+  {id:'u7q13', unit:7, topic:'Slope field interpretation', calc:false,
+    q:'A slope field shows horizontal segments along the line $y=2$. Which differential equation is consistent with this?',
+    choices:['$\\dfrac{dy}{dx}=y-2$','$\\dfrac{dy}{dx}=2-y$','$\\dfrac{dy}{dx}=x-2$','Both A and B'], ans:3,
+    exp:'Either $y-2$ or $2-y$ is zero exactly when $y=2$.'}
+);
+
+/* ========== UNIT 8: APPLICATIONS OF INTEGRATION ========== */
+MCQ.push(
+  {id:'u8q1', unit:8, topic:'Area between curves', calc:false,
+    q:'The area between $y=x$ and $y=x^2$ from $x=0$ to $x=1$ is',
+    choices:['$\\tfrac{1}{6}$','$\\tfrac{1}{3}$','$\\tfrac{1}{2}$','$1$'], ans:0,
+    exp:'$\\int_0^1(x-x^2)\\,dx=\\frac{1}{2}-\\frac{1}{3}=\\frac{1}{6}$.'},
+  {id:'u8q2', unit:8, topic:'Area enclosed', calc:false,
+    q:'The area enclosed by $y=x^2$ and $y=4$ is',
+    choices:['$\\tfrac{16}{3}$','$\\tfrac{32}{3}$','$\\tfrac{64}{3}$','$8$'], ans:1,
+    exp:'$\\int_{-2}^{2}(4-x^2)\\,dx=\\Big[4x-\\frac{x^3}{3}\\Big]_{-2}^{2}=\\frac{32}{3}$.'},
+  {id:'u8q3', unit:8, topic:'Volume disk', calc:false,
+    q:'Region under $y=\\sqrt{x}$, from $x=0$ to $x=4$, is rotated about the $x$-axis. The volume is',
+    choices:['$2\\pi$','$4\\pi$','$8\\pi$','$16\\pi$'], ans:2,
+    exp:'$V=\\pi\\int_0^4 x\\,dx=\\pi\\cdot 8=8\\pi$.'},
+  {id:'u8q4', unit:8, topic:'Volume washer', calc:false,
+    q:'The region bounded by $y=x^2$ and $y=4$ is rotated about the $x$-axis. The volume is',
+    choices:['$\\dfrac{128\\pi}{5}$','$\\dfrac{256\\pi}{5}$','$\\dfrac{64\\pi}{3}$','$32\\pi$'], ans:1,
+    exp:'$V=\\pi\\int_{-2}^{2}(16-x^4)\\,dx=\\pi\\Big[16x-\\frac{x^5}{5}\\Big]_{-2}^{2}=\\dfrac{256\\pi}{5}$.'},
+  {id:'u8q5', unit:8, topic:'Average value', calc:false,
+    q:'The average value of $\\cos x$ on $[0,\\pi/2]$ is',
+    choices:['$\\tfrac{2}{\\pi}$','$\\tfrac{1}{\\pi}$','$\\tfrac{\\pi}{2}$','$1$'], ans:0,
+    exp:'$\\dfrac{1}{\\pi/2}\\int_0^{\\pi/2}\\cos x\\,dx=\\dfrac{2}{\\pi}\\cdot 1=\\dfrac{2}{\\pi}$.'},
+  {id:'u8q6', unit:8, topic:'Total distance', calc:false,
+    q:'A particle has $v(t)=t-2$ on $[0,4]$. The total distance traveled is',
+    choices:['$0$','$2$','$4$','$8$'], ans:2,
+    exp:'$\\int_0^2(2-t)\\,dt+\\int_2^4(t-2)\\,dt=2+2=4$.'},
+  {id:'u8q7', unit:8, topic:'Displacement', calc:false,
+    q:'For the same $v(t)=t-2$, the displacement on $[0,4]$ is',
+    choices:['$0$','$2$','$4$','$-4$'], ans:0,
+    exp:'$\\int_0^4(t-2)\\,dt=\\big[\\tfrac{t^2}{2}-2t\\big]_0^4=8-8=0$.'},
+  {id:'u8q8', unit:8, topic:'Net change (rate in/out)', calc:false,
+    q:'Water enters a tank at $3t$ gal/hr and exits at $t^2$ gal/hr. The net change in water in the tank from $t=0$ to $t=3$ (gal) is',
+    choices:['$3$','$\\tfrac{9}{2}$','$\\tfrac{27}{2}$','$9$'], ans:1,
+    exp:'$\\int_0^3(3t-t^2)\\,dt=\\big[\\tfrac{3t^2}{2}-\\tfrac{t^3}{3}\\big]_0^3=\\tfrac{27}{2}-9=\\tfrac{9}{2}$.'},
+  {id:'u8q9', unit:8, topic:'Cross-sections', calc:false,
+    q:'A solid has its base in the region between $y=x$ and $y=\\sqrt{x}$ on $[0,1]$, with square cross-sections perpendicular to the $x$-axis. The volume is',
+    choices:['$\\tfrac{1}{6}$','$\\tfrac{1}{30}$','$\\tfrac{1}{15}$','$\\tfrac{1}{12}$'], ans:1,
+    exp:'Side $=\\sqrt{x}-x$. $V=\\int_0^1(\\sqrt{x}-x)^2\\,dx=\\int_0^1(x-2x^{3/2}+x^2)\\,dx=\\tfrac{1}{2}-\\tfrac{4}{5}+\\tfrac{1}{3}=\\tfrac{1}{30}$.'},
+  {id:'u8q10', unit:8, topic:'Accumulation function', calc:false,
+    q:'If $f(t)=t-1$ and $F(x)=\\displaystyle\\int_0^x f(t)\\,dt$, then $F(3)=$',
+    choices:['$\\tfrac{1}{2}$','$\\tfrac{3}{2}$','$3$','$\\tfrac{9}{2}$'], ans:1,
+    exp:'$F(3)=\\int_0^3(t-1)\\,dt=\\tfrac{9}{2}-3=\\tfrac{3}{2}$.'},
+  {id:'u8q11', unit:8, topic:'Position from acceleration', calc:false,
+    q:'A particle has $a(t)=2$, with $v(0)=1$ and $x(0)=3$. Find $x(2)$.',
+    choices:['$5$','$7$','$9$','$11$'], ans:2,
+    exp:'$v(t)=2t+1$, $x(t)=t^2+t+3$, $x(2)=4+2+3=9$.'},
+  {id:'u8q12', unit:8, topic:'Net change theorem', calc:true,
+    q:'If $F\'(t)=e^{0.1t}$ and $F(0)=10$, find $F(10)$ rounded to the nearest hundredth.',
+    choices:['$17.18$','$20.00$','$27.18$','$31.83$'], ans:2,
+    exp:'$F(10)=10+\\int_0^{10}e^{0.1t}dt=10+10(e-1)\\approx 27.183$.'},
+  {id:'u8q13', unit:8, topic:'Volume known cross section (semicircle)', calc:false,
+    q:'A solid has base bounded by $y=2-2x$, $x=0$, $y=0$. Cross-sections perpendicular to the $x$-axis are semicircles with diameters in the base. The volume is',
+    choices:['$\\tfrac{\\pi}{6}$','$\\tfrac{\\pi}{3}$','$\\tfrac{2\\pi}{3}$','$\\pi$'], ans:0,
+    exp:'Diameter $=2-2x$, radius $=1-x$. Area of a semicircle $=\\tfrac{\\pi r^2}{2}$. $V=\\int_0^1\\tfrac{\\pi(1-x)^2}{2}\\,dx=\\tfrac{\\pi}{2}\\cdot\\tfrac{1}{3}=\\tfrac{\\pi}{6}$.'}
+);
+
+/* ========== CALCULATOR-ACTIVE MCQs (covers Section I Part B style) ========== */
+MCQ.push(
+  {id:'cq1', unit:1, topic:'Limits — graph/numeric', calc:true,
+    q:'Use a calculator to evaluate $\\displaystyle\\lim_{x\\to 0}\\dfrac{e^x-1}{x}$.',
+    choices:['$0$','$0.5$','$1$','$e$'], ans:2,
+    exp:'This is the derivative of $e^x$ at $0$, equal to $1$.'},
+  {id:'cq2', unit:4, topic:'Numerical derivative', calc:true,
+    q:'A function $f$ has $f(2.001)\\approx 5.012$ and $f(1.999)\\approx 4.988$. Approximate $f\'(2)$.',
+    choices:['$2$','$6$','$12$','$60$'], ans:1,
+    exp:'Centered difference: $\\dfrac{f(2.001)-f(1.999)}{2(0.001)}=\\dfrac{0.024}{0.002}=12$.'},
+  {id:'cq3', unit:5, topic:'Optimization', calc:true,
+    q:'A rectangle has perimeter $20$. The maximum possible area is',
+    choices:['$20$','$25$','$50$','$100$'], ans:1,
+    exp:'Square is optimal: side $5$, area $25$.'},
+  {id:'cq4', unit:6, topic:'Definite integral (numeric)', calc:true,
+    q:'Using a calculator, $\\displaystyle\\int_0^1 e^{-x^2}\\,dx\\approx$',
+    choices:['$0.747$','$0.860$','$0.949$','$1.000$'], ans:0,
+    exp:'$\\int_0^1 e^{-x^2}dx\\approx 0.7468$.'},
+  {id:'cq5', unit:7, topic:'Diff eq numeric', calc:true,
+    q:'A radioactive substance decays continuously with half-life $5$ days. About what fraction of the original remains after $12$ days?',
+    choices:['$0.122$','$0.189$','$0.250$','$0.301$'], ans:1,
+    exp:'$\\frac{1}{2^{12/5}}=2^{-2.4}\\approx 0.189$.'},
+  {id:'cq6', unit:8, topic:'Area numeric', calc:true,
+    q:'The area of the region enclosed by $y=\\sin x$ and $y=\\dfrac{x}{2}$ for $x\\ge 0$ is approximately',
+    choices:['$0.250$','$0.421$','$0.685$','$1.000$'], ans:1,
+    exp:'Curves meet at $x=0$ and at $x\\approx 1.8955$ (solve $\\sin x=x/2$ numerically). Area $=\\int_0^{1.8955}(\\sin x-x/2)\\,dx\\approx 0.4208$.'},
+  {id:'cq7', unit:8, topic:'Volume of revolution', calc:true,
+    q:'Region under $y=\\ln x$ from $x=1$ to $x=e$ is rotated about the $x$-axis. The volume is approximately',
+    choices:['$1.50$','$2.26$','$3.14$','$5.43$'], ans:1,
+    exp:'$V=\\pi\\int_1^e(\\ln x)^2\\,dx=\\pi(e-2)\\approx 2.257$.'},
+  {id:'cq8', unit:5, topic:'Solving f\'(x)=0 numerically', calc:true,
+    q:'For $f(x)=x^3-3x+1$ on $[0,2]$, the absolute minimum value is approximately',
+    choices:['$-1$','$-0.732$','$0$','$1$'], ans:0,
+    exp:'$f\'(x)=3x^2-3=0\\Rightarrow x=1$. $f(0)=1$, $f(1)=-1$, $f(2)=3$; min is $-1$ at $x=1$.'},
+  {id:'cq9', unit:6, topic:'Integral by calc', calc:true,
+    q:'Approximate $\\displaystyle\\int_0^2 \\sin(x^2)\\,dx$.',
+    choices:['$0.342$','$0.805$','$1.000$','$2.000$'], ans:1,
+    exp:'Numerically (Fresnel-type): $\\int_0^2\\sin(x^2)dx\\approx 0.8048$.'},
+  {id:'cq10', unit:4, topic:'Tangent-line application', calc:true,
+    q:'A tank holds $V(t)=100+5t-0.1t^2$ gallons at time $t$ minutes ($t\\ge 0$). At $t=10$, water is flowing in at',
+    choices:['$3$ gal/min','$5$ gal/min','$7$ gal/min','$10$ gal/min'], ans:0,
+    exp:'$V\'(t)=5-0.2t$; $V\'(10)=5-2=3$ gal/min.'},
+  {id:'cq11', unit:8, topic:'Total accumulation', calc:true,
+    q:'Water flows into a tank at $r(t)=20\\sqrt{t}$ gal/hr. The total amount that flows in from $t=0$ to $t=4$ hours is',
+    choices:['$\\dfrac{160}{3}$ gal','$\\dfrac{320}{3}$ gal','$80$ gal','$160$ gal'], ans:1,
+    exp:'$\\int_0^4 20\\sqrt{t}\\,dt=20\\cdot\\frac{2}{3}t^{3/2}\\Big|_0^4=20\\cdot\\frac{16}{3}=\\frac{320}{3}\\approx 106.67$ gal.'},
+  {id:'cq12', unit:5, topic:'Critical point numeric', calc:true,
+    q:'On $[0,2\\pi]$, the function $f(x)=x+2\\sin x$ has its absolute minimum at',
+    choices:['$x=0$','$x=\\dfrac{2\\pi}{3}$','$x=\\dfrac{4\\pi}{3}$','$x=2\\pi$'], ans:0,
+    exp:'$f\'=1+2\\cos x=0\\Rightarrow\\cos x=-\\tfrac{1}{2}\\Rightarrow x=\\tfrac{2\\pi}{3},\\,\\tfrac{4\\pi}{3}$. Compare: $f(0)=0$, $f(2\\pi/3)\\approx 3.83$, $f(4\\pi/3)\\approx 2.46$, $f(2\\pi)\\approx 6.28$. Minimum is at $x=0$.'}
+);
+
+/* ============================================================
+   FRQ BANK — 12 full free-response questions in AP style.
+   Each has multi-part (a)-(d), point values, and a full rubric.
+   ============================================================ */
+
+FRQ.push({
+  id:'frq1', title:'Water tank: rate in / rate out', calc:true, unit:'8 (Apps of Integration)',
+  context:'At time $t$ hours, $0\\le t\\le 12$, water flows into a tank at rate $R(t)=20+5\\cos\\!\\left(\\dfrac{\\pi t}{6}\\right)$ gallons per hour and leaves at rate $D(t)=\\dfrac{t^2}{4}+2$ gallons per hour. The tank contains $100$ gallons at $t=0$.',
+  parts:[
+    {label:'(a)', q:'How much water flows into the tank during the $12$-hour period? Round to the nearest tenth of a gallon.', points:2,
+      rubric:['Sets up integral $\\int_0^{12} R(t)\\,dt$ — 1 pt','Correct value $240.0$ gal — 1 pt'],
+      solution:'$\\displaystyle\\int_0^{12}\\!\\left(20+5\\cos\\!\\tfrac{\\pi t}{6}\\right)dt=\\bigg[20t+\\tfrac{30}{\\pi}\\sin\\!\\tfrac{\\pi t}{6}\\bigg]_0^{12}=240$ gallons.'},
+    {label:'(b)', q:'Is the amount of water in the tank increasing or decreasing at $t=4$? Justify.', points:2,
+      rubric:['Computes $R(4)$ and $D(4)$ — 1 pt','Concludes "increasing" with $R(4)-D(4)>0$ — 1 pt'],
+      solution:'$R(4)=20+5\\cos\\!\\tfrac{2\\pi}{3}=20-2.5=17.5$. $D(4)=\\tfrac{16}{4}+2=6$. Net rate $=11.5>0$ $\\Rightarrow$ increasing.'},
+    {label:'(c)', q:'At what time $t$ in $[0,12]$ is the amount of water in the tank greatest? Justify your answer.', points:3,
+      rubric:['Sets net rate $R(t)-D(t)=0$ — 1 pt','Numerical solution $t\\approx 7.717$ — 1 pt','Justification (sign change of net rate from $+$ to $-$) — 1 pt'],
+      solution:'Maximum occurs where the net rate changes from positive to negative. Solving $R(t)=D(t)$ numerically on $[0,12]$ gives $t\\approx 7.717$. For $t<7.717$ net rate is positive (water increasing); for $t>7.717$ negative; so the absolute max in $[0,12]$ occurs at $t\\approx 7.717$.'},
+    {label:'(d)', q:'Find the maximum amount of water in the tank, in gallons. Round to the nearest tenth.', points:2,
+      rubric:['Sets up $W(t_{max})=100+\\int_0^{t_{max}}\\!(R-D)\\,dt$ — 1 pt','Numerical value $\\approx 193.1$ gal — 1 pt'],
+      solution:'$W(7.717)=100+\\displaystyle\\int_0^{7.717}\\!(R(s)-D(s))\\,ds\\approx 100+93.1=193.1$ gallons.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq2', title:'Particle motion (calculator)', calc:true, unit:'4/8',
+  context:'A particle moves along the $x$-axis. Its velocity at time $t$ ($t\\ge 0$) seconds is $v(t)=t^2-6t+8$ m/s. The particle\'s position at $t=0$ is $x(0)=2$ m.',
+  parts:[
+    {label:'(a)', q:'Find all times $t$ in $[0,5]$ when the particle changes direction. Justify.', points:2,
+      rubric:['Solves $v(t)=0$: $t=2,4$ — 1 pt','Verifies sign change of $v$ at each — 1 pt'],
+      solution:'$v=(t-2)(t-4)=0\\Rightarrow t=2,\\,4$. $v$ changes from $+$ to $-$ at $t=2$ and from $-$ to $+$ at $t=4$, so direction changes at both.'},
+    {label:'(b)', q:'Find the position of the particle at $t=5$.', points:2,
+      rubric:['Sets up $x(5)=x(0)+\\int_0^5 v(t)\\,dt$ — 1 pt','Correct value $\\tfrac{26}{3}$ m $\\approx 8.667$ — 1 pt'],
+      solution:'$\\displaystyle\\int_0^5(t^2-6t+8)\\,dt=\\Big[\\tfrac{t^3}{3}-3t^2+8t\\Big]_0^5=\\tfrac{125}{3}-75+40=\\tfrac{20}{3}$. So $x(5)=2+\\tfrac{20}{3}=\\tfrac{26}{3}\\approx 8.667$ m.'},
+    {label:'(c)', q:'Find the total distance traveled by the particle on $[0,5]$.', points:3,
+      rubric:['Recognizes total distance $=\\int_0^5|v|\\,dt$ — 1 pt','Splits at $t=2,\\,4$ — 1 pt','Correct value $=\\tfrac{28}{3}\\approx 9.333$ m — 1 pt'],
+      solution:'On $[0,2]$, $v\\ge 0$: $\\int_0^2 v\\,dt=\\tfrac{20}{3}$.\nOn $[2,4]$, $v\\le 0$: $\\big|\\int_2^4 v\\,dt\\big|=\\tfrac{4}{3}$.\nOn $[4,5]$, $v\\ge 0$: $\\int_4^5 v\\,dt=\\tfrac{4}{3}$.\nTotal distance $=\\tfrac{20}{3}+\\tfrac{4}{3}+\\tfrac{4}{3}=\\tfrac{28}{3}\\approx 9.333$ m.'},
+    {label:'(d)', q:'At $t=3$, is the particle\'s speed increasing or decreasing? Justify.', points:2,
+      rubric:['Computes $v(3)=-1$ and $a(3)=2t-6\\big|_{t=3}=0$. — 1 pt','Concludes neither (speed has zero rate) — 1 pt OR observes $a$ changes sign and analyzes nearby values'],
+      solution:'$v(3)=9-18+8=-1<0$. $a(3)=2(3)-6=0$. Since acceleration is zero at $t=3$, neither increasing nor decreasing instantaneously. (At $t=3^-$, $a<0$ and $v<0$ so speed is increasing; at $t=3^+$, $a>0$ and $v<0$ so speed is decreasing — $t=3$ is a local maximum of speed.)'}
+  ]
+});
+
+FRQ.push({
+  id:'frq3', title:'Table problem: Riemann sums and FTC', calc:false, unit:'6',
+  context:'Selected values of a differentiable function $f(x)$ are given.\n$\\begin{array}{c|ccccc}x&0&2&5&7&10\\\\\\hline f(x)&3&5&8&12&15\\end{array}$',
+  parts:[
+    {label:'(a)', q:'Use the data to approximate $f\'(6)$. Show your reasoning.', points:1,
+      rubric:['Forms forward, backward, or symmetric difference using closest values — 1 pt'],
+      solution:'Use the secant on $[5,7]$: $f\'(6)\\approx\\dfrac{f(7)-f(5)}{7-5}=\\dfrac{12-8}{2}=2$.'},
+    {label:'(b)', q:'Use a left Riemann sum with the four subintervals indicated by the data to estimate $\\displaystyle\\int_0^{10}f(x)\\,dx$.', points:2,
+      rubric:['Correct subinterval widths: $2,3,2,3$ — 1 pt','Sum $=2(3)+3(5)+2(8)+3(12)=73$ — 1 pt'],
+      solution:'$L=2(3)+3(5)+2(8)+3(12)=6+15+16+36=73$.'},
+    {label:'(c)', q:'Is the left Riemann sum in (b) an over- or under-estimate of the integral? Justify.', points:2,
+      rubric:['Identifies that the data suggest $f$ is increasing on $[0,10]$ — 1 pt','Concludes "underestimate" — 1 pt'],
+      solution:'The values of $f$ in the table are increasing, so a left sum (using the smaller value on each subinterval) is an underestimate of the integral.'},
+    {label:'(d)', q:'Suppose additionally that $f\'(x)$ is continuous on $[0,10]$. Explain why there must exist some $c$ in $(0,10)$ with $f\'(c)=\\dfrac{6}{5}$.', points:2,
+      rubric:['Average rate of change: $\\frac{15-3}{10}=\\frac{6}{5}$ — 1 pt','Cites Mean Value Theorem — 1 pt'],
+      solution:'Average rate of change of $f$ on $[0,10]$ is $\\dfrac{f(10)-f(0)}{10-0}=\\dfrac{12}{10}=\\dfrac{6}{5}$. Since $f$ is differentiable on $[0,10]$, by the Mean Value Theorem there exists $c\\in(0,10)$ with $f\'(c)=\\dfrac{6}{5}$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq4', title:'Implicit differentiation', calc:false, unit:'3',
+  context:'Consider the curve given by $x^2+xy+y^2=7$.',
+  parts:[
+    {label:'(a)', q:'Find $\\dfrac{dy}{dx}$ in terms of $x$ and $y$.', points:3,
+      rubric:['Differentiates implicitly — 1 pt','Treats $xy$ with product rule — 1 pt','Solves for $\\dfrac{dy}{dx}=-\\dfrac{2x+y}{x+2y}$ — 1 pt'],
+      solution:'$2x+y+xy\'+2yy\'=0\\Rightarrow y\'(x+2y)=-(2x+y)\\Rightarrow\\dfrac{dy}{dx}=-\\dfrac{2x+y}{x+2y}$.'},
+    {label:'(b)', q:'Find an equation of the line tangent to the curve at the point $(1,2)$.', points:2,
+      rubric:['Substitutes $(1,2)$ into derivative: slope $=-\\tfrac{4}{5}$ — 1 pt','Writes $y-2=-\\tfrac{4}{5}(x-1)$ — 1 pt'],
+      solution:'At $(1,2)$: slope $=-\\dfrac{2(1)+2}{1+2(2)}=-\\dfrac{4}{5}$. Tangent line: $y-2=-\\dfrac{4}{5}(x-1)$.'},
+    {label:'(c)', q:'Find all points on the curve at which the tangent line is horizontal.', points:2,
+      rubric:['Sets $2x+y=0$ — 1 pt','Substitutes back to get $x^2-2x^2+4x^2=7\\Rightarrow x^2=\\tfrac{7}{3}$ and lists the two points — 1 pt'],
+      solution:'Horizontal tangent $\\Leftrightarrow 2x+y=0\\Rightarrow y=-2x$. Substitute: $x^2+x(-2x)+4x^2=3x^2=7\\Rightarrow x=\\pm\\sqrt{7/3}$. Points: $\\big(\\sqrt{7/3},\\,-2\\sqrt{7/3}\\big)$ and $\\big(-\\sqrt{7/3},\\,2\\sqrt{7/3}\\big)$.'},
+    {label:'(d)', q:'Show that the curve has no points where the tangent line is vertical, except possibly where the derivative formula fails.', points:2,
+      rubric:['Sets denominator $x+2y=0\\Rightarrow x=-2y$ — 1 pt','Substitutes and finds $4y^2-2y^2+y^2=3y^2=7$, gives $\\pm$ points; checks numerator: at those points $2x+y=-4y+y=-3y\\ne 0$ when $y\\ne 0$, so vertical tangent at $(\\mp 2\\sqrt{7/3},\\pm\\sqrt{7/3})$ — 1 pt'],
+      solution:'$x+2y=0\\Rightarrow x=-2y$. Substituting: $4y^2-2y^2+y^2=3y^2=7\\Rightarrow y=\\pm\\sqrt{7/3}$, $x=\\mp 2\\sqrt{7/3}$. At these points the numerator $2x+y=-3y\\ne 0$, so the tangent is vertical there. (The curve does have vertical tangents — at those two points.)'}
+  ]
+});
+
+FRQ.push({
+  id:'frq5', title:'Differential equation and slope field', calc:false, unit:'7',
+  context:'Consider the differential equation $\\dfrac{dy}{dx}=\\dfrac{x}{y}$ with $y>0$.',
+  parts:[
+    {label:'(a)', q:'On the slope field for this differential equation, sketch the solution curve passing through the point $(0,2)$. (Describe its shape.)', points:1,
+      rubric:['Describes that solution is the upper half of a hyperbola through $(0,2)$ opening with $y$ increasing as $|x|$ increases — 1 pt'],
+      solution:'The slope at $(0,2)$ is $0$ (horizontal tangent), and slopes grow with $|x|/y$, so the solution curve looks like the upper branch of a hyperbola, passing through $(0,2)$ and increasing as $|x|$ increases.'},
+    {label:'(b)', q:'Find the particular solution $y=f(x)$ to the differential equation with initial condition $f(0)=2$.', points:3,
+      rubric:['Separates variables — 1 pt','Antidifferentiates correctly: $y^2/2=x^2/2+C$ — 1 pt','Applies initial condition and solves for $y$: $y=\\sqrt{x^2+4}$ — 1 pt'],
+      solution:'$y\\,dy=x\\,dx\\Rightarrow\\tfrac{y^2}{2}=\\tfrac{x^2}{2}+C$. With $f(0)=2$: $C=2$, so $y^2=x^2+4$, and since $y>0$, $y=\\sqrt{x^2+4}$.'},
+    {label:'(c)', q:'For the solution in (b), find $\\dfrac{d^2y}{dx^2}$ at $x=0$ and explain what it tells you about the curve.', points:3,
+      rubric:['Implicit second derivative or direct: $y\'=x/y$ so $y\'\'=(y-xy\')/y^2$ — 1 pt','At $(0,2)$: $y\'\'=1/2$ — 1 pt','Concludes curve is concave up at $(0,2)$ — 1 pt'],
+      solution:'Differentiating $y\'=x/y$: $y\'\'=\\dfrac{y-xy\'}{y^2}=\\dfrac{1}{y}-\\dfrac{x\\cdot(x/y)}{y^2}=\\dfrac{1}{y}-\\dfrac{x^2}{y^3}$. At $(0,2)$: $y\'\'=1/2>0$. The curve is concave up at $(0,2)$.'},
+    {label:'(d)', q:'Does the solution from (b) have a horizontal tangent? Explain.', points:1,
+      rubric:['Argues $y\'=x/y=0\\Leftrightarrow x=0$, so unique horizontal tangent at $(0,2)$ — 1 pt'],
+      solution:'$y\'=x/y=0\\Leftrightarrow x=0$. The solution has exactly one horizontal tangent, at the initial point $(0,2)$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq6', title:'Analysis from the graph of f\'', calc:false, unit:'5',
+  context:'Let $f$ be a differentiable function defined on $[-3,5]$. The graph of its derivative $f\'$ on this interval is given (described): $f\'$ is positive on $(-3,-1)$, negative on $(-1,3)$, and positive on $(3,5)$. Also $f\'(-1)=f\'(3)=0$, and $f\'$ has a local minimum at $x=1$.',
+  parts:[
+    {label:'(a)', q:'On what intervals is $f$ increasing? Justify.', points:2,
+      rubric:['Identifies $(-3,-1)\\cup(3,5)$ — 1 pt','Justifies via $f\'>0$ — 1 pt'],
+      solution:'$f$ is increasing where $f\'>0$, i.e. on $(-3,-1)$ and on $(3,5)$.'},
+    {label:'(b)', q:'Find all $x$-values where $f$ has a local maximum or minimum, and classify each. Justify.', points:2,
+      rubric:['Identifies local max at $x=-1$ ($f\'$ changes $+\\to-$) — 1 pt','Identifies local min at $x=3$ ($f\'$ changes $-\\to+$) — 1 pt'],
+      solution:'$f\'(-1)=0$ and $f\'$ changes from $+$ to $-$ $\\Rightarrow$ local max at $x=-1$. $f\'(3)=0$ and $f\'$ changes from $-$ to $+$ $\\Rightarrow$ local min at $x=3$.'},
+    {label:'(c)', q:'On what intervals is $f$ concave up?', points:2,
+      rubric:['Identifies that $f\'$ is increasing on $(1,5)$ — 1 pt','States $f$ concave up on $(1,5)$ — 1 pt'],
+      solution:'$f$ is concave up where $f\'\'>0$, i.e. where $f\'$ is increasing. Given $f\'$ has its local min at $x=1$, $f\'$ is increasing on $(1,5)$, so $f$ is concave up on $(1,5)$.'},
+    {label:'(d)', q:'If $f(-3)=2$, must $f(5)>2$? Justify in terms of areas.', points:3,
+      rubric:['Recognizes $f(5)=f(-3)+\\int_{-3}^5 f\'(x)\\,dx$ — 1 pt','Compares positive and negative areas — 1 pt','Reasoning that whether $f(5)>2$ depends on whether positive areas exceed negative — 1 pt'],
+      solution:'$f(5)=f(-3)+\\int_{-3}^5 f\'(x)\\,dx=2+\\big[(\\text{area where }f\'>0)-(\\text{area where }f\'<0)\\big]$. So $f(5)>2$ iff the total positive area of $f\'$ on $(-3,-1)\\cup(3,5)$ exceeds the negative area on $(-1,3)$. Without numerical area data, the conclusion cannot be determined; it is not automatic.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq7', title:'Volumes (calculator)', calc:true, unit:'8',
+  context:'Let $R$ be the region in the first quadrant enclosed by $y=\\sqrt{x}$, $y=x/2$, and the $y$-axis.',
+  parts:[
+    {label:'(a)', q:'Find the area of $R$.', points:2,
+      rubric:['Finds intersection points $x=0,4$ — 1 pt','Computes $\\int_0^4(\\sqrt x-x/2)\\,dx=\\tfrac{4}{3}$ — 1 pt'],
+      solution:'$\\sqrt{x}=x/2\\Rightarrow x=0,4$. Area $=\\int_0^4(\\sqrt{x}-x/2)\\,dx=\\big[\\tfrac{2}{3}x^{3/2}-\\tfrac{x^2}{4}\\big]_0^4=\\tfrac{16}{3}-4=\\tfrac{4}{3}$.'},
+    {label:'(b)', q:'The region $R$ is the base of a solid. Cross-sections perpendicular to the $x$-axis are squares. Find the volume.', points:3,
+      rubric:['Side length $=\\sqrt{x}-x/2$ — 1 pt','Sets up $V=\\int_0^4(\\sqrt{x}-x/2)^2\\,dx$ — 1 pt','Evaluates: $V=\\tfrac{8}{15}$ — 1 pt'],
+      solution:'$V=\\displaystyle\\int_0^4 (\\sqrt{x}-x/2)^2\\,dx=\\int_0^4(x-x^{3/2}+x^2/4)\\,dx=\\big[\\tfrac{x^2}{2}-\\tfrac{2}{5}x^{5/2}+\\tfrac{x^3}{12}\\big]_0^4=8-\\tfrac{64}{5}+\\tfrac{16}{3}=\\tfrac{120-192+80}{15}=\\tfrac{8}{15}$.'},
+    {label:'(c)', q:'Find the volume of the solid generated by rotating $R$ about the $x$-axis.', points:2,
+      rubric:['Sets up washer integral $V=\\pi\\int_0^4\\big(x-x^2/4\\big)\\,dx$ — 1 pt','Evaluates: $V=\\tfrac{8\\pi}{3}$ — 1 pt'],
+      solution:'$V=\\pi\\int_0^4\\big[(\\sqrt x)^2-(x/2)^2\\big]dx=\\pi\\int_0^4\\big(x-\\tfrac{x^2}{4}\\big)dx=\\pi\\Big[\\tfrac{x^2}{2}-\\tfrac{x^3}{12}\\Big]_0^4=\\pi\\big(8-\\tfrac{16}{3}\\big)=\\dfrac{8\\pi}{3}$.'},
+    {label:'(d)', q:'Find the volume of the solid generated by rotating $R$ about the line $y=4$.', points:2,
+      rubric:['Sets up washer with outer radius $4-x/2$ and inner radius $4-\\sqrt x$ — 1 pt','Evaluates: $V=8\\pi\\approx 25.133$ — 1 pt'],
+      solution:'$V=\\pi\\displaystyle\\int_0^4\\!\\big[(4-x/2)^2-(4-\\sqrt x)^2\\big]\\,dx=\\pi\\int_0^4\\!\\big[(16-4x+x^2/4)-(16-8\\sqrt{x}+x)\\big]dx=\\pi\\int_0^4\\!(-5x+x^2/4+8\\sqrt x)dx=\\pi\\big[-\\tfrac{5x^2}{2}+\\tfrac{x^3}{12}+\\tfrac{16}{3}x^{3/2}\\big]_0^4=\\pi\\big[-40+\\tfrac{64}{12}+\\tfrac{128}{3}\\big]=\\pi\\big[-40+\\tfrac{16}{3}+\\tfrac{128}{3}\\big]=\\pi\\big[-40+48\\big]=8\\pi\\approx 25.133$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq8', title:'Optimization', calc:false, unit:'5',
+  context:'A rectangular pen is to be built along a straight river. The side along the river needs no fence. The total length of fence available for the other three sides is $200$ ft.',
+  parts:[
+    {label:'(a)', q:'If $x$ denotes the length of the side parallel to the river and $y$ the length perpendicular to it, write a formula for the area $A$ in terms of one variable.', points:2,
+      rubric:['Constraint $x+2y=200$ — 1 pt','Expresses $A=x(200-x)/2$ — 1 pt'],
+      solution:'$x+2y=200\\Rightarrow y=\\dfrac{200-x}{2}$. So $A(x)=xy=\\dfrac{x(200-x)}{2}=100x-\\dfrac{x^2}{2}$ for $0\\le x\\le 200$.'},
+    {label:'(b)', q:'Find the dimensions that maximize the area.', points:3,
+      rubric:['$A\'(x)=100-x$ — 1 pt','Solves $A\'=0\\Rightarrow x=100$ — 1 pt','Computes $y=50$ — 1 pt'],
+      solution:'$A\'(x)=100-x=0\\Rightarrow x=100$ ft. Then $y=50$ ft.'},
+    {label:'(c)', q:'Justify that this is a maximum.', points:1,
+      rubric:['Cites $A\'\'=-1<0$ or sign change argument — 1 pt'],
+      solution:'$A\'\'(x)=-1<0$, so $A$ is concave down for all $x$, and the only critical point gives the absolute maximum on the closed interval $[0,200]$.'},
+    {label:'(d)', q:'What is the maximum area?', points:1,
+      rubric:['$A(100)=5000$ ft$^2$ — 1 pt'],
+      solution:'$A(100)=100\\cdot 50=5000$ ft$^2$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq9', title:'Average value and FTC', calc:false, unit:'6/8',
+  context:'Let $f(x)=x^2$ on the interval $[0,3]$.',
+  parts:[
+    {label:'(a)', q:'Find the average value of $f$ on $[0,3]$.', points:2,
+      rubric:['Sets up $\\tfrac{1}{3}\\int_0^3 x^2\\,dx$ — 1 pt','Computes $3$ — 1 pt'],
+      solution:'$\\bar f=\\tfrac{1}{3}\\int_0^3 x^2 dx=\\tfrac{1}{3}\\cdot 9=3$.'},
+    {label:'(b)', q:'Find a value $c$ in $(0,3)$ guaranteed by the Mean Value Theorem for Integrals such that $f(c)$ equals the average value.', points:2,
+      rubric:['Solves $c^2=3$ — 1 pt','States $c=\\sqrt 3$ in $(0,3)$ — 1 pt'],
+      solution:'$f(c)=c^2=3\\Rightarrow c=\\sqrt 3\\in(0,3)$.'},
+    {label:'(c)', q:'Define $F(x)=\\displaystyle\\int_0^x f(t)\\,dt$. Find $F(2)$ and $F\'(2)$.', points:2,
+      rubric:['$F(2)=\\tfrac{8}{3}$ — 1 pt','$F\'(2)=f(2)=4$ — 1 pt'],
+      solution:'$F(2)=\\int_0^2 t^2 dt=\\tfrac{8}{3}$. By FTC, $F\'(x)=f(x)$, so $F\'(2)=4$.'},
+    {label:'(d)', q:'Verify the Mean Value Theorem for $F$ on $[0,3]$ — find $c$ in $(0,3)$ with $F\'(c)=\\dfrac{F(3)-F(0)}{3}$.', points:2,
+      rubric:['$F(3)=9$, $F(0)=0$, average $=3$ — 1 pt','$F\'(c)=c^2=3\\Rightarrow c=\\sqrt 3$ — 1 pt'],
+      solution:'$F(3)=9$, $F(0)=0$, so average rate of change $=3$. Then $F\'(c)=c^2=3\\Rightarrow c=\\sqrt 3\\in(0,3)$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq10', title:'Position table — Riemann sums and motion', calc:false, unit:'8',
+  context:'A car has velocity $v(t)$ feet per second sampled at the times shown.\n$\\begin{array}{c|cccccc}t&0&5&10&15&20&30\\\\\\hline v(t)&0&20&40&50&55&60\\end{array}$',
+  parts:[
+    {label:'(a)', q:'Use a midpoint Riemann sum with three subintervals of equal width on $[0,30]$ to estimate the total distance traveled. Use values from the table.', points:2,
+      rubric:['Identifies subintervals $[0,10],[10,20],[20,30]$ width $10$, midpoints $5,15,25$ — 1 pt. Note: $t=25$ not in table, so use available data: width $10$ midpoints $\\{5,15,?\\}$. With given data, three subintervals from data: $[0,10],[10,20],[20,30]$ with sampled midpoint values; explicitly stated approach — 1 pt','Sum $=10(20)+10(50)+10(?)$. Since $t=25$ not provided, instead acknowledge limitation, or use widths $\\{5,5,5,5,10\\}$ left/right sums — 1 pt'],
+      solution:'A clean approach: use subintervals from the table directly with widths $\\{5,5,5,5,10\\}$ and a left Riemann sum: $5(0)+5(20)+5(40)+5(50)+10(55)=0+100+200+250+550=1100$ ft.'},
+    {label:'(b)', q:'Is the velocity increasing on $[0,30]$? Justify with the table.', points:1,
+      rubric:['Notes monotone increase in tabulated values — 1 pt'],
+      solution:'Yes: each successive $v$ value in the table is greater than the previous, so by inspection $v$ is increasing on the sampled times.'},
+    {label:'(c)', q:'If $v$ is differentiable, by the Mean Value Theorem there must be a time $c$ in $(10,15)$ with $v\'(c)$ equal to a specific value. Find this value.', points:2,
+      rubric:['Average rate of change $=\\dfrac{50-40}{15-10}=2$ — 1 pt','States MVT — 1 pt'],
+      solution:'Average rate of change of $v$ on $[10,15]$ is $\\dfrac{v(15)-v(10)}{15-10}=\\dfrac{50-40}{5}=2$ ft/s$^2$. By MVT, $v\'(c)=2$ for some $c\\in(10,15)$.'},
+    {label:'(d)', q:'Approximate $v\'(20)$ using a centered difference.', points:2,
+      rubric:['Sets up $\\dfrac{v(30)-v(15)}{30-15}$ or symmetric — 1 pt','Computes value $=\\dfrac{60-50}{15}=\\dfrac{2}{3}$ — 1 pt'],
+      solution:'Symmetric difference using $t=15$ and $t=30$: $v\'(20)\\approx\\dfrac{v(30)-v(15)}{30-15}=\\dfrac{60-50}{15}=\\dfrac{2}{3}$ ft/s$^2$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq11', title:'Curve sketching from f and f\' info', calc:false, unit:'5',
+  context:'A function $f$ has the following properties:\n• $f(0)=4$, $f(2)=0$, $f(4)=-2$\n• $f\'(x)<0$ on $(-\\infty,3)$, $f\'(3)=0$, $f\'(x)>0$ on $(3,\\infty)$\n• $f\'\'(x)>0$ for all $x\\ne 3$',
+  parts:[
+    {label:'(a)', q:'Where does $f$ have its absolute minimum? What is the minimum value (in terms of $f$)?', points:2,
+      rubric:['Identifies $x=3$ as the only critical point with $f\'$ changing $-\\to+$ — 1 pt','States min value is $f(3)$ (cannot be determined from given info numerically) — 1 pt'],
+      solution:'Since $f\'(x)<0$ for $x<3$, $f\'(3)=0$, $f\'(x)>0$ for $x>3$, $f$ has its absolute minimum at $x=3$. The minimum value is $f(3)$. (Given the constraints, $f(3)$ is between $f(2)=0$ and $f(4)=-2$, so $f(3)$ is some value $\\le -2$ if we extrapolate using concavity, but a specific numerical value can\'t be deduced.)'},
+    {label:'(b)', q:'On what interval(s) is $f$ concave up?', points:1,
+      rubric:['States $(-\\infty,3)\\cup(3,\\infty)$ — 1 pt'],
+      solution:'$f$ is concave up everywhere except possibly at $x=3$.'},
+    {label:'(c)', q:'Sketch the general shape of the graph of $f$, indicating intercepts and the location of the minimum.', points:3,
+      rubric:['Decreasing branch through $(0,4)$ and $(2,0)$ to a minimum at $x=3$ — 1 pt','Increasing branch from minimum through $(4,-2)$ — 1 pt','Concave up shape (smile) — 1 pt'],
+      solution:'A smooth U-shape: decreasing through $(0,4)\\to (2,0)\\to (3,f(3))$, then increasing back up through $(4,-2)$ and continuing. Concave up everywhere.'},
+    {label:'(d)', q:'Apply the Mean Value Theorem to find a $c$ in $(0,2)$ with $f\'(c)=-2$.', points:2,
+      rubric:['Average rate of change $=\\dfrac{f(2)-f(0)}{2}=-2$ — 1 pt','Cites MVT — 1 pt'],
+      solution:'Average rate of change of $f$ on $[0,2]$ is $\\dfrac{0-4}{2-0}=-2$. By the MVT (since $f$ is differentiable), there exists $c\\in(0,2)$ with $f\'(c)=-2$.'}
+  ]
+});
+
+FRQ.push({
+  id:'frq12', title:'Exponential model (calculator)', calc:true, unit:'7',
+  context:'A rumor spreads through a town. The number of people, $N(t)$, who have heard the rumor at time $t$ days satisfies $\\dfrac{dN}{dt}=0.4N$ with $N(0)=5$.',
+  parts:[
+    {label:'(a)', q:'Find the particular solution $N(t)$.', points:2,
+      rubric:['Recognizes solution form $N(t)=Ce^{0.4t}$ — 1 pt','Applies initial condition $C=5$, writes $N(t)=5e^{0.4t}$ — 1 pt'],
+      solution:'$N(t)=5e^{0.4t}$.'},
+    {label:'(b)', q:'How many people have heard the rumor after $7$ days? Round to the nearest integer.', points:2,
+      rubric:['Substitutes $t=7$ — 1 pt','Computes $N(7)=5e^{2.8}\\approx 82$ people — 1 pt'],
+      solution:'$N(7)=5e^{2.8}\\approx 82.223$, so about $82$ people.'},
+    {label:'(c)', q:'How fast is the rumor spreading at $t=5$? Include units.', points:2,
+      rubric:['Sets up $\\dfrac{dN}{dt}\\big|_{t=5}=0.4\\,N(5)$ — 1 pt','Computes $\\approx 14.78$ people per day — 1 pt'],
+      solution:'$\\dfrac{dN}{dt}=0.4N$. At $t=5$, $N(5)=5e^{2}\\approx 36.945$, so rate $=0.4(36.945)\\approx 14.778$ people/day.'},
+    {label:'(d)', q:'The town has $5{,}000$ people. Use the model to estimate when everyone in the town will have heard the rumor. Comment on a limitation of the model.', points:3,
+      rubric:['Sets $5e^{0.4t}=5000\\Rightarrow t=\\dfrac{\\ln 1000}{0.4}\\approx 17.27$ days — 2 pts','Notes that exponential growth is unrealistic at large scales (population finite, spread saturates) — 1 pt'],
+      solution:'$5e^{0.4t}=5000\\Rightarrow e^{0.4t}=1000\\Rightarrow t=\\dfrac{\\ln 1000}{0.4}\\approx 17.27$ days. Limitation: pure exponential growth ignores saturation; in reality, the rate of new spreading should decrease as nearly everyone has heard, suggesting a logistic model would be more realistic.'}
+  ]
+});
+
+/* ============================================================
+   STUDY GUIDE — formulas, theorems, key facts per unit.
+   ============================================================ */
+
+GUIDE.push(
+  {unit:1, title:'Limits & Continuity',
+    items:[
+      {h:'Definition of a limit',  b:'$\\displaystyle\\lim_{x\\to a}f(x)=L$ means $f(x)$ can be made arbitrarily close to $L$ for $x$ close enough (but not equal) to $a$.'},
+      {h:'Limit laws', b:'Limits of sums, products, quotients, compositions all distribute under standard hypotheses.'},
+      {h:'Special limits', b:'$\\displaystyle\\lim_{x\\to 0}\\frac{\\sin x}{x}=1,\\quad\\lim_{x\\to 0}\\frac{1-\\cos x}{x^2}=\\tfrac{1}{2},\\quad\\lim_{x\\to 0}\\frac{e^x-1}{x}=1$.'},
+      {h:'Continuity at $a$', b:'$f$ is continuous at $a$ iff (1) $f(a)$ exists, (2) $\\lim_{x\\to a}f(x)$ exists, (3) the two are equal.'},
+      {h:'Types of discontinuities', b:'Removable (hole), Jump (one-sided limits differ), Infinite (vertical asymptote).'},
+      {h:'Intermediate Value Theorem', b:'If $f$ is continuous on $[a,b]$ and $N$ is between $f(a)$ and $f(b)$, then $f(c)=N$ for some $c\\in[a,b]$.'},
+      {h:'Squeeze Theorem', b:'If $g(x)\\le f(x)\\le h(x)$ near $a$ and $\\lim g=\\lim h=L$, then $\\lim f=L$.'},
+      {h:'End behavior of rational functions', b:'Compare degrees of numerator/denominator: equal $\\to$ ratio of leading coefficients; lower top $\\to 0$; higher top $\\to\\pm\\infty$.'}
+    ]},
+  {unit:2, title:'Differentiation: Definition & Rules',
+    items:[
+      {h:'Definition of derivative', b:'$f\'(a)=\\displaystyle\\lim_{h\\to 0}\\frac{f(a+h)-f(a)}{h}=\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}$.'},
+      {h:'Power rule', b:'$\\dfrac{d}{dx}[x^n]=nx^{n-1}$.'},
+      {h:'Product rule', b:'$(uv)\'=u\'v+uv\'$.'},
+      {h:'Quotient rule', b:'$\\Big(\\dfrac{u}{v}\\Big)\'=\\dfrac{u\'v-uv\'}{v^2}$.'},
+      {h:'Standard derivatives', b:'$(e^x)\'=e^x$; $(\\ln x)\'=\\tfrac{1}{x}$; $(\\sin x)\'=\\cos x$; $(\\cos x)\'=-\\sin x$; $(\\tan x)\'=\\sec^2 x$; $(\\sec x)\'=\\sec x\\tan x$; $(\\cot x)\'=-\\csc^2 x$; $(\\csc x)\'=-\\csc x\\cot x$.'},
+      {h:'Differentiability $\\Rightarrow$ continuity', b:'If $f\'(a)$ exists, then $f$ is continuous at $a$. The converse is false.'}
+    ]},
+  {unit:3, title:'Composite, Implicit, Inverse',
+    items:[
+      {h:'Chain rule', b:'$\\dfrac{d}{dx}[f(g(x))]=f\'(g(x))\\cdot g\'(x)$.'},
+      {h:'Implicit differentiation', b:'Differentiate both sides wrt $x$, treating $y$ as $y(x)$, then solve for $\\dfrac{dy}{dx}$.'},
+      {h:'Inverse function derivative', b:'If $g=f^{-1}$, then $g\'(b)=\\dfrac{1}{f\'(g(b))}$ (where $b=f(a)$).'},
+      {h:'Inverse trig', b:'$(\\arcsin x)\'=\\dfrac{1}{\\sqrt{1-x^2}}$; $(\\arccos x)\'=-\\dfrac{1}{\\sqrt{1-x^2}}$; $(\\arctan x)\'=\\dfrac{1}{1+x^2}$.'},
+      {h:'Logarithmic differentiation', b:'For $y=f(x)^{g(x)}$, take $\\ln$ of both sides and differentiate implicitly.'}
+    ]},
+  {unit:4, title:'Contextual Applications of Differentiation',
+    items:[
+      {h:'Position / velocity / acceleration', b:'$v=s\'$, $a=v\'=s\'\'$. Speed $=|v|$.'},
+      {h:'Speeding up vs slowing', b:'Speeding up when $v$ and $a$ have the same sign; slowing when opposite.'},
+      {h:'Related rates strategy', b:'Identify the relation between quantities, differentiate wrt $t$, plug in known values last.'},
+      {h:'Linearization', b:'$L(x)=f(a)+f\'(a)(x-a)$ approximates $f(x)$ near $x=a$.'},
+      {h:'L\'Hôpital', b:'For $\\tfrac{0}{0}$ or $\\tfrac{\\infty}{\\infty}$ indeterminate, $\\lim\\tfrac{f}{g}=\\lim\\tfrac{f\'}{g\'}$.'}
+    ]},
+  {unit:5, title:'Analytical Applications of Differentiation',
+    items:[
+      {h:'Critical numbers', b:'$x=c$ in domain with $f\'(c)=0$ or $f\'(c)$ undefined.'},
+      {h:'First derivative test', b:'$f\'$ changes $+\\to-$ at $c$: local max; $-\\to+$: local min.'},
+      {h:'Second derivative test', b:'If $f\'(c)=0$ and $f\'\'(c)>0$: local min; $f\'\'(c)<0$: local max.'},
+      {h:'Concavity and inflection', b:'$f\'\'>0$: concave up; $<0$: concave down. Inflection point: concavity changes.'},
+      {h:'Mean Value Theorem', b:'If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then $\\exists c\\in(a,b)$ with $f\'(c)=\\dfrac{f(b)-f(a)}{b-a}$.'},
+      {h:'Extreme Value Theorem', b:'Continuous $f$ on a closed interval $[a,b]$ attains an absolute max and min there.'},
+      {h:'Optimization process', b:'Identify the function to optimize, use the constraint to reduce to one variable, find critical points, verify with second-derivative or sign-change test, check endpoints.'}
+    ]},
+  {unit:6, title:'Integration & Accumulation',
+    items:[
+      {h:'Antiderivatives', b:'$\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}+C$ for $n\\ne-1$; $\\int\\dfrac{1}{x}dx=\\ln|x|+C$; $\\int e^{kx}dx=\\dfrac{e^{kx}}{k}+C$; $\\int\\sin x=−\\cos x+C$; $\\int\\cos x=\\sin x+C$; $\\int\\sec^2 x=\\tan x+C$.'},
+      {h:'$u$-substitution', b:'Let $u=g(x)$, $du=g\'(x)\\,dx$; rewrite the integral in $u$ and integrate.'},
+      {h:'Riemann sums', b:'Left, right, midpoint, trapezoidal sums approximate definite integrals.'},
+      {h:'Fundamental Theorem of Calculus', b:'(I) $\\dfrac{d}{dx}\\int_a^x f(t)\\,dt=f(x)$. (II) $\\int_a^b f\'(x)dx=f(b)-f(a)$.'},
+      {h:'Properties of definite integrals', b:'Linearity, additivity over intervals, $\\int_a^a f=0$, $\\int_a^b f=-\\int_b^a f$.'}
+    ]},
+  {unit:7, title:'Differential Equations',
+    items:[
+      {h:'Slope fields', b:'At each $(x,y)$, draw a small line with slope $f(x,y)=\\dfrac{dy}{dx}$.'},
+      {h:'Separable equations', b:'Write $g(y)\\,dy=h(x)\\,dx$, then antidifferentiate both sides.'},
+      {h:'Exponential growth/decay', b:'$\\dfrac{dy}{dt}=ky\\Rightarrow y=Ce^{kt}$.'},
+      {h:'Newton\'s Law of Cooling', b:'$\\dfrac{dT}{dt}=-k(T-T_a)\\Rightarrow T(t)=T_a+(T_0-T_a)e^{-kt}$.'},
+      {h:'Half-life and doubling', b:'For $y=Ce^{kt}$: half-life $=\\dfrac{\\ln 2}{|k|}$; doubling time $=\\dfrac{\\ln 2}{k}$.'}
+    ]},
+  {unit:8, title:'Applications of Integration',
+    items:[
+      {h:'Area between curves', b:'$\\displaystyle\\int_a^b\\!\\big(\\text{top}-\\text{bottom}\\big)dx$ (or analogous in $y$).'},
+      {h:'Volume — disk', b:'About a horizontal axis: $V=\\pi\\int_a^b [R(x)]^2\\,dx$.'},
+      {h:'Volume — washer', b:'$V=\\pi\\int_a^b\\!\\big[R^2-r^2\\big]\\,dx$.'},
+      {h:'Volume — known cross sections', b:'$V=\\int_a^b A(x)\\,dx$, where $A(x)$ is the area of a slice.'},
+      {h:'Average value', b:'$\\bar f=\\dfrac{1}{b-a}\\int_a^b f(x)\\,dx$.'},
+      {h:'Net change theorem', b:'$\\int_a^b F\'(t)\\,dt=F(b)-F(a)$. E.g., displacement $=\\int v\\,dt$; total distance $=\\int|v|\\,dt$.'},
+      {h:'Accumulation function', b:'$F(x)=\\int_a^x f(t)\\,dt\\Rightarrow F\'(x)=f(x)$.'}
+    ]}
+);
+
+/* ============================================================
+   APP RENDERING
+   ============================================================ */
+
+const $ = (sel,el=document)=>el.querySelector(sel);
+const app = $('#app');
+const navBtns = document.querySelectorAll('#nav button[data-mode]');
+let currentMode = 'home';
+
+navBtns.forEach(b => b.addEventListener('click', ()=>{
+  navBtns.forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  setMode(b.dataset.mode);
+}));
+
+/* ---------- STATE (localStorage) ---------- */
+/* Tracks streak, XP, and last-known progress so the home screen can recommend
+   what to work on next. All keys live under a single namespaced object so a
+   schema change is one read + one write. */
+const APState = (() => {
+  const KEY = 'apcalc-state-v1';
+  const todayISO = () => new Date().toISOString().slice(0,10);
+  const daysBetween = (aISO, bISO) => {
+    if(!aISO || !bISO) return null;
+    const a = new Date(aISO+'T00:00:00');
+    const b = new Date(bISO+'T00:00:00');
+    return Math.round((b - a) / 86400000);
+  };
+  const fresh = () => ({
+    lastSessionDate: null,
+    streakDays: 0,
+    longestStreak: 0,
+    totalXP: 0,
+    totalAnswered: 0,
+    totalCorrect: 0,
+    lastModeAttempted: null,
+    weakestUnit: null,
+    perUnit: {}, // { '3': { seen: 12, correct: 7 } }
+  });
+  let cache = null;
+  const read = () => {
+    if(cache) return cache;
+    try { const raw = localStorage.getItem(KEY); cache = raw ? Object.assign(fresh(), JSON.parse(raw)) : fresh(); }
+    catch(e){ cache = fresh(); }
+    return cache;
+  };
+  const write = (s) => {
+    cache = s;
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){}
+  };
+  const tickStreak = () => {
+    const s = read();
+    const today = todayISO();
+    if(s.lastSessionDate === today) return s;
+    const gap = daysBetween(s.lastSessionDate, today);
+    if(gap === 1) s.streakDays += 1;
+    else if(gap === null || gap > 1) s.streakDays = 1;
+    s.lastSessionDate = today;
+    s.longestStreak = Math.max(s.longestStreak, s.streakDays);
+    write(s);
+    return s;
+  };
+  const wasStreakBroken = () => {
+    const s = read();
+    if(!s.lastSessionDate) return false;
+    const gap = daysBetween(s.lastSessionDate, todayISO());
+    return gap !== null && gap > 1 && s.longestStreak >= 2;
+  };
+  const recordAnswer = (unit, isCorrect) => {
+    const s = read();
+    s.totalAnswered += 1;
+    if(isCorrect){ s.totalCorrect += 1; s.totalXP += 10; }
+    if(unit != null){
+      const key = String(unit);
+      s.perUnit[key] = s.perUnit[key] || { seen:0, correct:0 };
+      s.perUnit[key].seen += 1;
+      if(isCorrect) s.perUnit[key].correct += 1;
+    }
+    s.weakestUnit = computeWeakest(s.perUnit);
+    write(s);
+    return s;
+  };
+  const noteMode = (mode) => {
+    const s = read();
+    s.lastModeAttempted = mode;
+    write(s);
+  };
+  const computeWeakest = (perUnit) => {
+    let worst = null, worstAcc = 1;
+    for(const [u, v] of Object.entries(perUnit)){
+      if(v.seen < 3) continue; // need a minimum sample
+      const acc = v.correct / v.seen;
+      if(acc < worstAcc){ worstAcc = acc; worst = Number(u); }
+    }
+    return worst;
+  };
+  const reset = () => write(fresh());
+  return { read, tickStreak, wasStreakBroken, recordAnswer, noteMode, reset };
+})();
+
+/* ---------- THEME ---------- */
+function applyTheme(theme){
+  // Set on <html> so the CSS variables also reach the html element itself.
+  // Otherwise html keeps :root's light values and any uncovered area
+  // (when content is shorter than the viewport) shows as a white band.
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+  if(icon && label){
+    if(theme === 'dark'){ icon.textContent = '☀️'; label.textContent = 'Light'; }
+    else { icon.textContent = '🌙'; label.textContent = 'Dark'; }
+  }
+}
+function initTheme(){
+  let saved = null;
+  try { saved = localStorage.getItem('apcalc-theme'); } catch(e){}
+  if(!saved){
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    saved = prefersDark ? 'dark' : 'light';
+  }
+  applyTheme(saved);
+}
+document.getElementById('themeToggle').addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('apcalc-theme', next); } catch(e){}
+});
+initTheme();
+refreshStreakChip();
+
+function typeset(){
+  if(window.MathJax && MathJax.typesetPromise){ MathJax.typesetPromise([app]); }
+}
+
+function setMode(m){
+  currentMode = m;
+  if(m==='home') renderHome();
+  else if(m==='exam') renderExamLanding();
+  else if(m==='topic') renderTopicPractice();
+  else if(m==='frq') renderFRQList();
+  else if(m==='guide') renderGuide();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function navigateTo(mode){
+  navBtns.forEach(x => x.classList.toggle('active', x.dataset.mode===mode));
+  // A session "starts" the moment the student leaves home for any practice mode.
+  if(mode !== 'home'){
+    APState.tickStreak();
+    APState.noteMode(mode);
+    refreshStreakChip();
+  }
+  setMode(mode);
+}
+
+/* ---------- HOME ---------- */
+const RHO_SVG = `
+<svg class="rho" viewBox="0 0 220 220" role="img" aria-label="Rho, your study companion">
+  <defs>
+    <linearGradient id="rho-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="oklch(from var(--brand) calc(l + 0.05) c h)"/>
+      <stop offset="100%" stop-color="var(--brand)"/>
+    </linearGradient>
+    <radialGradient id="rho-shine" cx="35%" cy="32%" r="35%">
+      <stop offset="0%" stop-color="oklch(0.99 0.02 60)" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="oklch(0.99 0.02 60)" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse class="rho-shadow" cx="110" cy="200" rx="58" ry="6" fill="oklch(0.20 0.03 40)" opacity="0.12"/>
+  <g class="rho-sparkles" aria-hidden="true">
+    <path d="M 38 60 l 3 -10 l 3 10 l 10 3 l -10 3 l -3 10 l -3 -10 l -10 -3 z" fill="var(--ember)"/>
+    <path d="M 178 50 l 2.4 -8 l 2.4 8 l 8 2.4 l -8 2.4 l -2.4 8 l -2.4 -8 l -8 -2.4 z" fill="var(--ember)"/>
+    <path d="M 192 124 l 1.8 -6 l 1.8 6 l 6 1.8 l -6 1.8 l -1.8 6 l -1.8 -6 l -6 -1.8 z" fill="var(--ember-deep)"/>
+  </g>
+  <path class="rho-body" d="M 110 38 C 65 38 38 76 38 122 C 38 162 70 188 110 188 C 150 188 182 162 182 122 C 182 76 155 38 110 38 Z"
+        fill="url(#rho-body)" stroke="var(--brand-deep)" stroke-width="1.5" stroke-opacity="0.4"/>
+  <path class="rho-tuft" d="M 108 38 Q 100 18 118 14 Q 134 12 134 30"
+        stroke="var(--brand-deep)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <ellipse cx="86" cy="86" rx="26" ry="16" fill="url(#rho-shine)"/>
+  <ellipse class="rho-cheek" cx="62" cy="138" r="9" rx="9" ry="6" fill="oklch(0.78 0.13 22)" opacity="0.45"/>
+  <ellipse class="rho-cheek" cx="158" cy="138" r="9" rx="9" ry="6" fill="oklch(0.78 0.13 22)" opacity="0.45"/>
+  <ellipse class="rho-eye rho-eye-l" cx="86" cy="118" rx="6" ry="9.5" fill="oklch(0.18 0.03 40)"/>
+  <ellipse class="rho-eye rho-eye-r" cx="134" cy="118" rx="6" ry="9.5" fill="oklch(0.18 0.03 40)"/>
+  <circle cx="88.5" cy="114" r="2.4" fill="oklch(0.99 0.005 65)"/>
+  <circle cx="136.5" cy="114" r="2.4" fill="oklch(0.99 0.005 65)"/>
+  <path class="rho-eye-closed" d="M 78 119 Q 86 124 94 119" stroke="oklch(0.18 0.03 40)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path class="rho-eye-closed" d="M 126 119 Q 134 124 142 119" stroke="oklch(0.18 0.03 40)" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <path class="rho-mouth-default" d="M 96 148 Q 110 158 124 148" stroke="oklch(0.18 0.03 40)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path class="rho-mouth-night" d="M 100 150 Q 110 156 120 150 L 120 156 L 100 156 Z" fill="oklch(0.32 0.06 25)" stroke="oklch(0.18 0.03 40)" stroke-width="2.4" stroke-linejoin="round"/>
+</svg>`;
+
+function unitTitle(n){
+  const map = {1:'Limits & Continuity',2:'Differentiation',3:'Composite & Implicit',4:'Apps of Differentiation',
+    5:'Analytical Apps',6:'Integration',7:'Differential Equations',8:'Apps of Integration'};
+  return map[n] || `Unit ${n}`;
+}
+
+function buildRecommendation(){
+  const s = APState.read();
+  const broken = APState.wasStreakBroken();
+  // Choose what to recommend based on state.
+  if(s.totalAnswered === 0){
+    return { label:'Start a 5-question warm-up', body:`Pick any unit, take it slow. We'll start tracking your weak spots once you've answered a few.`, mode:'topic' };
+  }
+  if(s.weakestUnit != null){
+    const u = s.perUnit[String(s.weakestUnit)];
+    const pct = Math.round((u.correct/u.seen)*100);
+    return { label:`Drill Unit ${s.weakestUnit}`, body:`Last time, ${pct}% on <b>${unitTitle(s.weakestUnit)}</b>. Ten more questions and you'll feel it click.`, mode:'topic', unit:s.weakestUnit };
+  }
+  if(broken){
+    return { label:'Pick something quick', body:`A 5-question topic drill is the lowest-effort way back in. You don't have to commit to a whole exam.`, mode:'topic' };
+  }
+  if(s.lastModeAttempted === 'exam'){
+    return { label:'Continue exam practice', body:`Keep your timing instincts warm. A second pass under the clock builds the stamina for the real test.`, mode:'exam' };
+  }
+  return { label:'Try an FRQ', body:`You've been drilling MCQs. Switch gears: one free-response problem, work the rubric, see your reasoning hold up.`, mode:'frq' };
+}
+
+function buildGreeting(){
+  const s = APState.read();
+  const hour = new Date().getHours();
+  const broken = APState.wasStreakBroken();
+  if(s.lastSessionDate === null) return { lead:`Hey.`, line:`Let's start a streak today.` };
+  if(broken) return { lead:`Welcome back.`, line:`Streak reset to zero. <em>Want to start over?</em>` };
+  if(s.streakDays >= 7) return { lead:`Day ${s.streakDays}.`, line:`A whole week. <em>You're cooking.</em>` };
+  if(s.streakDays >= 2) return { lead:`Day ${s.streakDays}.`, line:`Nice work. <em>Ready when you are.</em>` };
+  if(hour >= 22) return { lead:`Late session?`, line:`<em>Twenty minutes</em> is plenty. Keep it light.` };
+  return { lead:`Hey.`, line:`Ready when you are.` };
+}
+
+function rhoModifierClasses(){
+  const s = APState.read();
+  const hour = new Date().getHours();
+  const cls = [];
+  if(s.streakDays >= 3) cls.push('rho-streak');
+  if(hour >= 23 || hour < 5) cls.push('rho-night');
+  // Wave once per page-load session
+  if(!sessionStorage.getItem('rho-waved')){
+    cls.push('rho-wave');
+    try { sessionStorage.setItem('rho-waved', '1'); } catch(e){}
+  }
+  return cls.join(' ');
+}
+
+function refreshStreakChip(){
+  const s = APState.read();
+  const chip = document.getElementById('streakChip');
+  const days = document.getElementById('streakDays');
+  if(!chip || !days) return;
+  if(s.streakDays >= 1 && !APState.wasStreakBroken()){
+    chip.classList.add('show');
+    days.textContent = s.streakDays;
+  } else {
+    chip.classList.remove('show');
+  }
+}
+
+function renderHome(){
+  const s = APState.read();
+  const greet = buildGreeting();
+  const rec = buildRecommendation();
+  const rhoCls = rhoModifierClasses();
+
+  // Practice Exam tile — clock arc set to ~62% (visual cue only).
+  // Topic Practice tile — eight unit chips, weakest highlighted (or unit 3 default).
+  const weak = s.weakestUnit ?? 3;
+  const chips = [1,2,3,4,5,6,7,8].map(u=>`<span class="unit-chip ${u===weak && s.weakestUnit!=null?'weak':''}">${u}</span>`).join('');
+
+  app.innerHTML = `
+    <div class="home">
+
+      <!-- Region B: Hero -->
+      <section class="hero" aria-labelledby="hero-greeting">
+        <div class="hero-text">
+          <span class="hero-eyebrow"><span class="dot"></span>${s.lastSessionDate ? 'Today' : 'First session'}</span>
+          <h1 id="hero-greeting" class="hero-greeting">${greet.lead}<br>${greet.line}</h1>
+          <p class="hero-rec">${rec.body}</p>
+          <div class="hero-cta">
+            <button class="btn" id="hero-start" data-go="${rec.mode}"${rec.unit?` data-unit="${rec.unit}"`:''}>${rec.label} →</button>
+            <button class="btn ghost" id="hero-other">Pick something else</button>
+            <span class="btn-time">≈ 6 min</span>
+          </div>
+        </div>
+        <div class="hero-mascot" aria-hidden="true">
+          <div class="rho ${rhoCls}">${RHO_SVG.replace('<svg class="rho"','<svg').replace('viewBox="0 0 220 220" role="img" aria-label="Rho, your study companion"','viewBox="0 0 220 220"')}</div>
+        </div>
+      </section>
+
+      <!-- Region C: Mode quartet -->
+      <section class="modes" aria-label="Study modes">
+
+        <button class="mode mode-exam" data-go="exam">
+          <div class="mode-head">
+            <div>
+              <h3 class="mode-title">Practice Exam</h3>
+              <p class="mode-sub">Full timed simulation. 45 multiple-choice + 6 free-response, exactly the College Board format.</p>
+            </div>
+            <span class="mode-tag">3h 15m</span>
+          </div>
+          <div class="mode-canvas">
+            <div class="clock-face">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="clock-track" cx="50" cy="50" r="42"/>
+                <circle class="clock-fill" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="105"/>
+              </svg>
+              <div class="clock-label">
+                <div>
+                  <div class="hours">3:15</div>
+                  <div class="mins">Total time</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+
+        <button class="mode mode-topic" data-go="topic">
+          <div class="mode-head">
+            <div>
+              <h3 class="mode-title">Topic Practice</h3>
+              <p class="mode-sub">Drill by unit with instant feedback. ${s.weakestUnit!=null ? `Right now, Unit ${s.weakestUnit} needs the most love.` : `Eight units, your pick.`}</p>
+            </div>
+            <span class="mode-tag subtle">Unit 1–8</span>
+          </div>
+          <div class="mode-canvas">
+            <div>
+              <div class="unit-chips">${chips}</div>
+              <div class="unit-chip-label">${s.weakestUnit!=null ? `Weakest: ${unitTitle(s.weakestUnit)}` : 'Pick a unit to start'}</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="mode mode-frq" data-go="frq">
+          <div class="mode-head">
+            <div>
+              <h3 class="mode-title">FRQ Practice</h3>
+              <p class="mode-sub">${FRQ.length} free-response problems with point-by-point rubrics. Write the work, check the model solution.</p>
+            </div>
+            <span class="mode-tag">${FRQ.length} problems</span>
+          </div>
+          <div class="mode-canvas">
+            <div class="frq-paper" aria-hidden="true">
+              <span class="frq-line"><span class="frq-mark">(a)</span> <span class="frq-eq">f'(x) = 3x² − 4x + 1</span></span>
+              <span class="frq-line"><span class="frq-mark">(b)</span> Set f'(x) = 0:</span>
+              <span class="frq-line">&nbsp;&nbsp;&nbsp;<span class="frq-eq">x = 1, x = ⅓</span><span class="frq-cursor"></span></span>
+              <span class="frq-line"><span class="frq-mark">(c)</span> By MVT, ∃c ∈ (0, 2)…</span>
+            </div>
+          </div>
+        </button>
+
+        <button class="mode mode-guide" data-go="guide">
+          <div class="mode-head">
+            <div>
+              <h3 class="mode-title">Study Guide</h3>
+              <p class="mode-sub">${GUIDE.length} units of theorems, formulas, and key facts. Quick lookup or read straight through.</p>
+            </div>
+            <span class="mode-tag subtle">Reference</span>
+          </div>
+          <div class="mode-canvas">
+            <div class="flashcard-stack" aria-hidden="true">
+              <div class="flashcard">$\\dfrac{d}{dx}\\sin x = \\cos x$</div>
+              <div class="flashcard">$\\displaystyle\\int_a^b f'(x)\\,dx = f(b) - f(a)$</div>
+              <div class="flashcard">$\\displaystyle\\lim_{x\\to 0}\\dfrac{\\sin x}{x} = 1$</div>
+              <div class="flashcard">MVT: $\\exists c \\in (a,b),\\ f'(c) = \\dfrac{f(b)-f(a)}{b-a}$</div>
+            </div>
+          </div>
+        </button>
+
+      </section>
+
+      <!-- Region D: Quiet footer -->
+      <p class="home-foot">
+        <span><b>${MCQ.length}</b> MCQ</span><span class="dot-sep">·</span>
+        <span><b>${FRQ.length}</b> FRQ</span><span class="dot-sep">·</span>
+        <span><b>${GUIDE.length}</b> study units</span><span class="dot-sep">·</span>
+        <span>verified against the AP CED</span>
+      </p>
+    </div>
+  `;
+
+  // Wire interactions
+  app.querySelectorAll('.mode').forEach(c => {
+    c.addEventListener('click', () => navigateTo(c.dataset.go));
+  });
+  document.getElementById('hero-start')?.addEventListener('click', (e) => {
+    const btn = e.currentTarget;
+    const unit = btn.dataset.unit;
+    if(unit){ topicState.unit = unit; buildTopicPool(); }
+    navigateTo(btn.dataset.go);
+  });
+  document.getElementById('hero-other')?.addEventListener('click', () => {
+    document.querySelector('.modes')?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  // MathJax for the flashcard stack
+  typeset();
+}
+
+/* ---------- TOPIC PRACTICE ---------- */
+let topicState = {unit:'all', calc:'all', idx:0, selected:null, revealed:false, pool:[]};
+
+function buildTopicPool(){
+  topicState.pool = MCQ.filter(q => {
+    if(topicState.unit!=='all' && q.unit!=Number(topicState.unit)) return false;
+    if(topicState.calc==='nocalc' && q.calc) return false;
+    if(topicState.calc==='calc' && !q.calc) return false;
+    return true;
+  });
+  topicState.idx = 0;
+  topicState.selected = null;
+  topicState.revealed = false;
+}
+
+function renderTopicPractice(){
+  if(topicState.pool.length===0) buildTopicPool();
+  const total = topicState.pool.length;
+  const q = topicState.pool[topicState.idx];
+
+  const unitOpts = [1,2,3,4,5,6,7,8].map(u=>`<option value="${u}" ${topicState.unit==u?'selected':''}>Unit ${u}</option>`).join('');
+
+  app.innerHTML = `
+    <div class="card">
+      <h2>Topic Practice</h2>
+      <div class="toolbar">
+        <div class="row">
+          <label class="muted">Unit:</label>
+          <select id="filt-unit">
+            <option value="all" ${topicState.unit=='all'?'selected':''}>All units</option>
+            ${unitOpts}
+          </select>
+          <label class="muted">Calculator:</label>
+          <select id="filt-calc">
+            <option value="all" ${topicState.calc=='all'?'selected':''}>All</option>
+            <option value="nocalc" ${topicState.calc=='nocalc'?'selected':''}>No-calculator</option>
+            <option value="calc" ${topicState.calc=='calc'?'selected':''}>Calculator-active</option>
+          </select>
+        </div>
+        <div class="muted">${total>0 ? (topicState.idx+1) : 0} / ${total}</div>
+      </div>
+      <div class="progress"><div style="width:${total>0?((topicState.idx+1)/total*100):0}%"></div></div>
+      ${total===0 ? '<p class="muted">No questions match your filter.</p>' : renderQuestion(q, topicState)}
+      <div class="row" style="margin-top:14px">
+        <button class="btn ghost" id="prev" ${topicState.idx===0?'disabled':''}>← Previous</button>
+        <button class="btn" id="next" ${topicState.idx===total-1?'disabled':''}>Next →</button>
+        <button class="btn muted" id="shuffle">Shuffle</button>
+      </div>
+    </div>
+  `;
+
+  $('#filt-unit').addEventListener('change', e=>{topicState.unit=e.target.value; buildTopicPool(); renderTopicPractice();});
+  $('#filt-calc').addEventListener('change', e=>{topicState.calc=e.target.value; buildTopicPool(); renderTopicPractice();});
+  $('#prev')?.addEventListener('click', ()=>{topicState.idx=Math.max(0,topicState.idx-1); topicState.selected=null; topicState.revealed=false; renderTopicPractice();});
+  $('#next')?.addEventListener('click', ()=>{topicState.idx=Math.min(total-1,topicState.idx+1); topicState.selected=null; topicState.revealed=false; renderTopicPractice();});
+  $('#shuffle')?.addEventListener('click', ()=>{topicState.pool.sort(()=>Math.random()-0.5); topicState.idx=0; topicState.selected=null; topicState.revealed=false; renderTopicPractice();});
+
+  bindQuestion(topicState);
+  typeset();
+}
+
+function renderQuestion(q, st){
+  const choices = q.choices.map((c,i)=>{
+    const lab = ['A','B','C','D'][i];
+    let cls = 'choice';
+    if(st.revealed){
+      if(i===q.ans) cls += ' correct';
+      else if(i===st.selected) cls += ' wrong';
+    } else if(st.selected===i) cls += ' selected';
+    return `<div class="${cls}" data-i="${i}"><span class="lab">${lab}.</span> ${c}</div>`;
+  }).join('');
+
+  let feedback = '';
+  if(st.revealed){
+    const correct = st.selected===q.ans;
+    feedback = `<div class="feedback ${correct?'right':'wrong'}">
+      <strong>${correct?'Correct.':'Not quite.'}</strong>
+      <div class="why">${q.exp}</div>
+    </div>`;
+  }
+
+  return `
+    <div class="qbox">
+      <div class="qhead">
+        <span class="qnum">${q.id.toUpperCase()} · ${q.topic}</span>
+        <span>
+          <span class="pill unit">Unit ${q.unit}</span>
+          <span class="pill ${q.calc?'calc':'nocalc'}">${q.calc?'Calculator OK':'No calculator'}</span>
+        </span>
+      </div>
+      <div class="qstem">${q.q}</div>
+      <div class="choices">${choices}</div>
+      ${feedback}
+      <div class="row" style="margin-top:12px">
+        <button class="btn" id="check" ${st.selected===null||st.revealed?'disabled':''}>Check answer</button>
+      </div>
+    </div>
+  `;
+}
+
+function bindQuestion(st){
+  app.querySelectorAll('.choice').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      if(st.revealed) return;
+      st.selected = Number(el.dataset.i);
+      if(currentMode==='topic') renderTopicPractice();
+      else if(currentMode==='exam') renderExamMCQ();
+    });
+  });
+  $('#check')?.addEventListener('click', ()=>{
+    st.revealed = true;
+    // Record XP/correctness only in topic-practice (exam reveals at the end).
+    if(currentMode === 'topic'){
+      const q = topicState.pool[topicState.idx];
+      if(q && st.selected !== null){
+        APState.recordAnswer(q.unit, st.selected === q.ans);
+        refreshStreakChip();
+      }
+    }
+    if(currentMode==='topic') renderTopicPractice();
+    else if(currentMode==='exam') renderExamMCQ();
+  });
+}
+
+/* ---------- FRQ PRACTICE ---------- */
+let frqState = {idx:0, showSolutions:{}};
+
+function renderFRQList(){
+  app.innerHTML = `
+    <div class="card">
+      <h2>Free-Response Practice</h2>
+      <p class="muted">${FRQ.length} full multi-part FRQs in AP style. Each has a point-by-point rubric and a model solution.</p>
+      <div class="grid cols-2" style="margin-top:14px">
+        ${FRQ.map((f,i)=>`
+          <div class="qbox" style="cursor:pointer" data-i="${i}">
+            <div class="qhead">
+              <span class="qnum">FRQ ${i+1}</span>
+              <span class="pill ${f.calc?'calc':'nocalc'}">${f.calc?'Calc':'No calc'}</span>
+            </div>
+            <div style="font-weight:600;font-size:16px">${f.title}</div>
+            <div class="muted" style="font-size:13px;margin-top:4px">Unit ${f.unit} · ${f.parts.length} parts · ${f.parts.reduce((s,p)=>s+p.points,0)} points</div>
+          </div>`).join('')}
+      </div>
+    </div>
+  `;
+  app.querySelectorAll('.qbox[data-i]').forEach(el=>{
+    el.addEventListener('click', ()=>{frqState.idx=Number(el.dataset.i); frqState.showSolutions={}; renderFRQ();});
+  });
+  typeset();
+}
+
+function renderFRQ(){
+  const f = FRQ[frqState.idx];
+  const totalPts = f.parts.reduce((s,p)=>s+p.points,0);
+  app.innerHTML = `
+    <div class="card">
+      <button class="btn ghost" id="back">← Back to FRQ list</button>
+      <div style="margin-top:14px">
+        <div class="row" style="justify-content:space-between">
+          <div>
+            <h2 style="margin-bottom:4px">FRQ ${frqState.idx+1}: ${f.title}</h2>
+            <span class="pill ${f.calc?'calc':'nocalc'}">${f.calc?'Calculator':'No calculator'}</span>
+            <span class="pill unit">Unit ${f.unit}</span>
+            <span class="pill">${totalPts} pts total</span>
+          </div>
+        </div>
+        <p style="margin-top:10px"><strong>Context.</strong> ${f.context}</p>
+      </div>
+    </div>
+    ${f.parts.map((p,i)=>`
+      <div class="card">
+        <div class="frq-part">
+          <div class="row" style="justify-content:space-between">
+            <strong>${p.label}</strong>
+            <span class="pill">${p.points} pt${p.points>1?'s':''}</span>
+          </div>
+          <div style="margin-top:6px">${p.q}</div>
+        </div>
+        <div class="row" style="gap:8px;margin-top:6px">
+          <button class="btn ghost toggleR" data-i="${i}">${frqState.showSolutions[i]?'Hide':'Show'} rubric &amp; solution</button>
+        </div>
+        ${frqState.showSolutions[i] ? `
+          <div style="margin-top:10px">
+            <h3>Rubric</h3>
+            <ul class="rubric">${p.rubric.map(r=>`<li>${r}</li>`).join('')}</ul>
+            <h3>Model solution</h3>
+            <pre class="solution">${p.solution}</pre>
+            <h3>Self-grade</h3>
+            ${[...Array(p.points).keys()].map(j=>`<div class="check-row"><input type="checkbox" id="sg-${i}-${j}"> <label for="sg-${i}-${j}">I earned point ${j+1}</label></div>`).join('')}
+          </div>` : ''}
+      </div>
+    `).join('')}
+  `;
+  $('#back').addEventListener('click', ()=>renderFRQList());
+  app.querySelectorAll('.toggleR').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const i = Number(b.dataset.i);
+      frqState.showSolutions[i] = !frqState.showSolutions[i];
+      renderFRQ();
+    });
+  });
+  typeset();
+}
+
+/* ---------- STUDY GUIDE ---------- */
+function renderGuide(){
+  app.innerHTML = `
+    <div class="card">
+      <h2>Study Guide</h2>
+      <p class="muted">Quick-reference summary of theorems, formulas, and key facts. Tap any unit to expand.</p>
+    </div>
+    ${GUIDE.map(g=>`
+      <div class="card">
+        <details ${g.unit===1?'open':''}>
+          <summary><strong>Unit ${g.unit}: ${g.title}</strong></summary>
+          <table class="formula-table">
+            <thead><tr><th style="width:30%">Topic</th><th>Detail</th></tr></thead>
+            <tbody>
+              ${g.items.map(it=>`<tr><td>${it.h}</td><td>${it.b}</td></tr>`).join('')}
+            </tbody>
+          </table>
+        </details>
+      </div>
+    `).join('')}
+  `;
+  typeset();
+}
+
+/* ---------- PRACTICE EXAM ---------- */
+let examState = null;
+
+function newExam(){
+  // Section I: 45 MCQ split — 30 no-calc, 15 calc.
+  const noCalc = MCQ.filter(q=>!q.calc);
+  const calc = MCQ.filter(q=>q.calc);
+  const partA = pickRandom(noCalc, Math.min(30, noCalc.length));
+  const partB = pickRandom(calc, Math.min(15, calc.length));
+  // Section II: 6 FRQ split — 2 calc, 4 no-calc.
+  const calcFRQ = FRQ.filter(f=>f.calc);
+  const noCalcFRQ = FRQ.filter(f=>!f.calc);
+  const frqA = pickRandom(calcFRQ, Math.min(2, calcFRQ.length));
+  const frqB = pickRandom(noCalcFRQ, Math.min(4, noCalcFRQ.length));
+
+  examState = {
+    started: false,
+    completed: false,
+    section: 'A1', // A1=MCQ Part A, A2=MCQ Part B, B1=FRQ Part A, B2=FRQ Part B
+    qIdx: 0,
+    mcqA: partA, mcqB: partB,
+    frqA, frqB,
+    answers: {}, // qid -> selected idx
+    timeLeft: 60*60, // section A: 60 min for 30 no-calc
+    timer: null,
+    sectionStart: null,
+    revealAtEnd: true,
+  };
+}
+
+function pickRandom(arr,n){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a.slice(0,n);
+}
+
+function fmtTime(s){
+  if(s<0) s = 0;
+  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
+  return (h>0?h+':':'') + String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+}
+
+function startExamTimer(){
+  if(examState.timer) clearInterval(examState.timer);
+  examState.timer = setInterval(()=>{
+    examState.timeLeft--;
+    const t = $('#timer');
+    if(t){
+      t.textContent = fmtTime(examState.timeLeft);
+      t.classList.toggle('warn', examState.timeLeft<=300 && examState.timeLeft>60);
+      t.classList.toggle('danger', examState.timeLeft<=60);
+    }
+    if(examState.timeLeft<=0){ advanceSection(); }
+  },1000);
+}
+
+function advanceSection(){
+  if(examState.timer) clearInterval(examState.timer);
+  if(examState.section==='A1'){ examState.section='A2'; examState.qIdx=0; examState.timeLeft=45*60; renderExamMCQ(); }
+  else if(examState.section==='A2'){ examState.section='B1'; examState.qIdx=0; examState.timeLeft=30*60; renderExamFRQ(); }
+  else if(examState.section==='B1'){ examState.section='B2'; examState.qIdx=0; examState.timeLeft=60*60; renderExamFRQ(); }
+  else if(examState.section==='B2'){ finishExam(); }
+}
+
+function renderExamLanding(){
+  if(!examState || examState.completed){ newExam(); }
+  if(examState.started){
+    if(examState.section==='A1' || examState.section==='A2') renderExamMCQ();
+    else renderExamFRQ();
+    return;
+  }
+  app.innerHTML = `
+    <div class="card">
+      <h2>Full Practice Exam</h2>
+      <p class="muted">Mirrors the real exam in structure, pacing, and difficulty.</p>
+      <h3>Format</h3>
+      <table class="formula-table">
+        <thead><tr><th>Section</th><th>Questions</th><th>Time</th><th>Calculator</th></tr></thead>
+        <tbody>
+          <tr><td>I — Part A</td><td>30 MCQ</td><td>60 min</td><td>Not allowed</td></tr>
+          <tr><td>I — Part B</td><td>15 MCQ</td><td>45 min</td><td>Required</td></tr>
+          <tr><td>II — Part A</td><td>2 FRQ</td><td>30 min</td><td>Required</td></tr>
+          <tr><td>II — Part B</td><td>4 FRQ</td><td>60 min</td><td>Not allowed</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">The exam draws from the question banks (Unit 1–8). Each attempt randomizes selections.</p>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" id="startExam">Begin exam</button>
+        <span class="muted">Total: 3 hr 15 min</span>
+      </div>
+    </div>
+  `;
+  $('#startExam').addEventListener('click', ()=>{ examState.started=true; renderExamMCQ(); startExamTimer(); });
+}
+
+function currentMCQList(){
+  return examState.section==='A1' ? examState.mcqA : examState.mcqB;
+}
+function currentFRQList(){
+  return examState.section==='B1' ? examState.frqA : examState.frqB;
+}
+
+function renderExamMCQ(){
+  const list = currentMCQList();
+  const q = list[examState.qIdx];
+  const selected = examState.answers[q.id];
+  const sectName = examState.section==='A1' ? 'Section I, Part A — No Calculator' : 'Section I, Part B — Calculator Required';
+  const choices = q.choices.map((c,i)=>{
+    const lab = ['A','B','C','D'][i];
+    const cls = 'choice' + (selected===i?' selected':'');
+    return `<div class="${cls}" data-i="${i}"><span class="lab">${lab}.</span> ${c}</div>`;
+  }).join('');
+
+  const palette = list.map((qq,i)=>{
+    const a = examState.answers[qq.id];
+    const cls = i===examState.qIdx ? 'btn' : (a!==undefined ? 'btn muted' : 'btn ghost');
+    return `<button class="${cls}" data-jump="${i}" style="padding:6px 10px;font-size:12px;min-width:32px">${i+1}</button>`;
+  }).join(' ');
+
+  app.innerHTML = `
+    <div class="card">
+      <div class="toolbar">
+        <div>
+          <div class="muted" style="font-size:12px;letter-spacing:.05em;text-transform:uppercase">${sectName}</div>
+          <h2 style="margin:4px 0 0">Question ${examState.qIdx+1} of ${list.length}</h2>
+        </div>
+        <div class="row">
+          <span id="timer" class="timer">${fmtTime(examState.timeLeft)}</span>
+          <button class="btn warn" id="endSec">End section</button>
+        </div>
+      </div>
+      <div class="qbox">
+        <div class="qhead">
+          <span class="qnum">${q.topic}</span>
+          <span class="pill ${q.calc?'calc':'nocalc'}">${q.calc?'Calculator':'No calculator'}</span>
+        </div>
+        <div class="qstem">${q.q}</div>
+        ${choices}
+      </div>
+      <div class="row" style="justify-content:space-between;margin-top:14px">
+        <button class="btn ghost" id="prev" ${examState.qIdx===0?'disabled':''}>← Previous</button>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;flex:1">${palette}</div>
+        <button class="btn" id="next">${examState.qIdx===list.length-1?'Finish section':'Next →'}</button>
+      </div>
+    </div>
+  `;
+  app.querySelectorAll('.choice').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      examState.answers[q.id] = Number(el.dataset.i);
+      renderExamMCQ();
+    });
+  });
+  $('#prev').addEventListener('click', ()=>{ if(examState.qIdx>0){ examState.qIdx--; renderExamMCQ(); }});
+  $('#next').addEventListener('click', ()=>{
+    if(examState.qIdx===list.length-1){ advanceSection(); }
+    else { examState.qIdx++; renderExamMCQ(); }
+  });
+  $('#endSec').addEventListener('click', ()=>{
+    if(confirm('End this section and move to the next? Your time for the next section will start fresh.')) advanceSection();
+  });
+  app.querySelectorAll('[data-jump]').forEach(b=>b.addEventListener('click', ()=>{
+    examState.qIdx = Number(b.dataset.jump); renderExamMCQ();
+  }));
+  typeset();
+}
+
+function renderExamFRQ(){
+  const list = currentFRQList();
+  const f = list[examState.qIdx];
+  const sectName = examState.section==='B1' ? 'Section II, Part A — Calculator Required' : 'Section II, Part B — No Calculator';
+  app.innerHTML = `
+    <div class="card">
+      <div class="toolbar">
+        <div>
+          <div class="muted" style="font-size:12px;letter-spacing:.05em;text-transform:uppercase">${sectName}</div>
+          <h2 style="margin:4px 0 0">FRQ ${examState.qIdx+1} of ${list.length}: ${f.title}</h2>
+        </div>
+        <div class="row">
+          <span id="timer" class="timer">${fmtTime(examState.timeLeft)}</span>
+          <button class="btn warn" id="endSec">End section</button>
+        </div>
+      </div>
+      <p style="margin-top:8px"><strong>Context.</strong> ${f.context}</p>
+      ${f.parts.map(p=>`
+        <div class="frq-part" style="margin-top:8px">
+          <div class="row" style="justify-content:space-between"><strong>${p.label}</strong><span class="pill">${p.points} pt${p.points>1?'s':''}</span></div>
+          <div style="margin-top:4px">${p.q}</div>
+        </div>
+      `).join('')}
+      <p class="muted" style="margin-top:10px">Work this problem on paper. After the exam ends you'll be able to grade yourself with the rubric.</p>
+      <div class="row" style="justify-content:space-between;margin-top:14px">
+        <button class="btn ghost" id="prev" ${examState.qIdx===0?'disabled':''}>← Previous</button>
+        <button class="btn" id="next">${examState.qIdx===list.length-1?'Finish section':'Next →'}</button>
+      </div>
+    </div>
+  `;
+  $('#prev').addEventListener('click', ()=>{ if(examState.qIdx>0){ examState.qIdx--; renderExamFRQ(); }});
+  $('#next').addEventListener('click', ()=>{
+    if(examState.qIdx===list.length-1){ advanceSection(); }
+    else { examState.qIdx++; renderExamFRQ(); }
+  });
+  $('#endSec').addEventListener('click', ()=>{
+    if(confirm('End this section and move on?')) advanceSection();
+  });
+  typeset();
+}
+
+function finishExam(){
+  if(examState.timer) clearInterval(examState.timer);
+  examState.completed = true;
+  // Score MCQ.
+  const allMC = examState.mcqA.concat(examState.mcqB);
+  let correct = 0;
+  allMC.forEach(q=>{ if(examState.answers[q.id]===q.ans) correct++; });
+  const totalMC = allMC.length;
+  const pct = totalMC>0 ? Math.round(100*correct/totalMC) : 0;
+
+  // Approximate AP score (1–5) using common cutoffs (rough).
+  // MCQ counts for ~50% of score. Without graded FRQ here, we estimate from MCQ only.
+  let estScore = 1;
+  if(pct>=72) estScore=5;
+  else if(pct>=58) estScore=4;
+  else if(pct>=44) estScore=3;
+  else if(pct>=30) estScore=2;
+
+  app.innerHTML = `
+    <div class="card">
+      <h2>Exam complete</h2>
+      <div class="scorebox">
+        <div>
+          <div class="muted" style="color:#a3aac3">Multiple-choice score</div>
+          <div class="big">${correct} / ${totalMC}</div>
+        </div>
+        <div>
+          <div class="muted" style="color:#a3aac3">Approx. AP score (MCQ only)</div>
+          <div class="big">${estScore}</div>
+        </div>
+      </div>
+      <p class="muted">This estimate uses only the MCQ portion. Use the FRQ rubrics below to self-grade your free-response work, then aim for a balanced total of ~108/108 to estimate your overall AP score.</p>
+      <h3>Multiple-choice review</h3>
+      <p class="muted">Review every question with the correct answer and explanation:</p>
+      <div id="mcReview"></div>
+      <h3>FRQ self-grading</h3>
+      <p class="muted">Compare your written work to the rubric and model solution:</p>
+      <div id="frqReview"></div>
+      <div class="row" style="margin-top:14px">
+        <button class="btn" id="newAttempt">Start a new exam</button>
+      </div>
+    </div>
+  `;
+
+  // MC review
+  const mcDiv = $('#mcReview');
+  mcDiv.innerHTML = allMC.map((q,i)=>{
+    const sel = examState.answers[q.id];
+    const got = sel===q.ans;
+    return `
+      <div class="qbox">
+        <div class="qhead">
+          <span class="qnum">Q${i+1} · ${q.topic}</span>
+          <span class="pill ${q.calc?'calc':'nocalc'}">${q.calc?'Calculator':'No calculator'}</span>
+        </div>
+        <div class="qstem">${q.q}</div>
+        ${q.choices.map((c,j)=>{
+          let cls='choice';
+          if(j===q.ans) cls+=' correct';
+          else if(j===sel) cls+=' wrong';
+          return `<div class="${cls}"><span class="lab">${['A','B','C','D'][j]}.</span> ${c}</div>`;
+        }).join('')}
+        <div class="feedback ${got?'right':'wrong'}">
+          <strong>${got?'Correct':(sel===undefined?'Not answered':'Incorrect')}</strong>
+          <div class="why">${q.exp}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // FRQ review
+  const frqList = examState.frqA.concat(examState.frqB);
+  $('#frqReview').innerHTML = frqList.map((f,fi)=>`
+    <div class="qbox">
+      <div class="qhead">
+        <span class="qnum">FRQ ${fi+1} · Unit ${f.unit}</span>
+        <span class="pill ${f.calc?'calc':'nocalc'}">${f.calc?'Calculator':'No calculator'}</span>
+      </div>
+      <div style="font-weight:600">${f.title}</div>
+      <p style="margin-top:6px">${f.context}</p>
+      ${f.parts.map((p,pi)=>`
+        <details style="margin-top:8px">
+          <summary><strong>${p.label}</strong> (${p.points} pts) — ${p.q.replace(/<[^>]+>/g,'').slice(0,80)}…</summary>
+          <h3>Rubric</h3><ul class="rubric">${p.rubric.map(r=>`<li>${r}</li>`).join('')}</ul>
+          <h3>Model solution</h3><pre class="solution">${p.solution}</pre>
+        </details>
+      `).join('')}
+    </div>
+  `).join('');
+
+  $('#newAttempt').addEventListener('click', ()=>{ examState=null; renderExamLanding(); });
+  typeset();
+}
+
+/* ---------- INIT ---------- */
+renderHome();
+</script>
+</body>
+</html>
+
+
+
+
+
+
